@@ -97,15 +97,15 @@ Solder the SK6812 Mini-E LEDs (with legs), on the **back side** of the board.
 We solder LEDs using the same approach as for the diodes.
 Begin by pre-soldering one side of the LED pad.
 
-![SK6812 Mini-E soldering](img/sk6812-mini-e-LED-1.jpg) 
+![SK6812 Mini-E soldering](img/sk6812-mini-e-led-1.jpg) 
 
 Place the component, and hold it in place with tweezers.  
 
-![SK6812 Mini-E soldering](img/sk6812-mini-e-LED-2.jpg)
+![SK6812 Mini-E soldering](img/sk6812-mini-e-led-2.jpg)
 
 Then solder the other pad's.
 
-![SK6812 Mini-E soldering](img/sk6812-mini-e-LED-3.jpg)
+![SK6812 Mini-E soldering](img/sk6812-mini-e-led-3.jpg)
 
 **It is necessary to solder all LEDs, even if you use the rotary encoder.**
 
