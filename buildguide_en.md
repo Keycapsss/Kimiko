@@ -302,10 +302,10 @@ In order to do so, first put
 into your config.h. 
 Then flash the keymap with 
 	
-	make make lily58/light:(yourkeymap):avrdude-split-left 
+	make make keycapsss/kimiko:(yourkeymap):avrdude-split-left 
 and
 
-	make make lily58/light:(yourkeymap):avrdude-split-right
+	make make keycapsss/kimiko:(yourkeymap):avrdude-split-right
 respectively.
 If you're using DFU bootloader (in case of the Puchi-C), replace the `avrdude` with `dfu`
 
