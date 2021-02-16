@@ -1,57 +1,58 @@
-# Lily58L Pro Build Guide
+# Kimiko Build Guide
 
-<!-- TOC depthfrom:2 depthto:2 -->
+## Required tools
 
-- [BOM](#bom)
-- [Introduction](#introduction)
-- [Attach the diodes](#attach-the-diodes)
-- [Solder the led's for underglow optionally](#solder-the-leds-for-underglow-optionally)
-- [Solder the led's for keycap back optionally](#solder-the-leds-for-keycap-back-optionally)
-- [Soldering the TRRS jack and reset switch](#soldering-the-trrs-jack-and-reset-switch)
-- [Attach the OLED display](#attach-the-oled-display)
-- [Install Pro Micro with sockets](#install-pro-micro-with-sockets)
-- [Solder the rotary encoder](#solder-the-rotary-encoder)
-- [Solder the sockets](#solder-the-sockets)
-- [Case assembly](#case-assembly)
-- [Flash keymap on Pro Micro](#flash-keymap-on-pro-micro)
-- [Default keymap](#default-keymap)
-- [Operation check](#operation-check)
-- [When in trouble](#when-in-trouble)
-- [Customize the default keymap](#customize-the-default-keymap)
-- [Use "Per Key" LEDs without underglow LEDs](#use-per-key-leds-without-underglow-leds)
+![Required tools for soldering](img/required-tools-1.jpg)
 
-<!-- /TOC -->
+ * Solder iron with adjustable temperature
+ * Solder (i use Sn99.3Cu0.7 0.5mm/0.02inch)
+ * Tweezers for the small SMD parts
+ * Tip cleaner (wet sponge or brass wool)
+
+Most parts i solder at 320-340°C. The SMD LEDs are temperature sensitive, so lower the temperature to 300-320°C.
+
+### How to solder tips
+
+![How to THT soldering](img/soldering-hints-1.png)
+*[adafruit](https://github.com/adafruit/Reference-Cards)  CC-BY-SA 4.0*
+
+![How to THT soldering](img/soldering-hints-3.jpg)
+*Source: [adafruit](https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems)*
+
+![How to SMD soldering](img/soldering-hints-2.png)
+*[Timo Schindler](https://github.com/marove2000/referenceCards)  CC-BY-SA 4.0*
 
 ## BOM
+
+![Kimiko Parts](img/kimiko-parts-1.jpg)
 
 ### Required parts
 
 Part name | Quantity | Remarks | Photo |
 | ------- | -------- | ------- | ----- |
-| Lily58L PCB | 2 pcs ||
-| Lily58L case | 1 set | 2 solid panels, 2 with holes for switches |
-| [Pro Micro](https://keycapsss.com/keyboard-parts/parts/79/arduino-pro-micro-atmega32u4-controller) or [Elite-C](https://keycapsss.com/keyboard-parts/parts/99/elite-c-pro-micro-replacement-with-usb-c-and-atmega32u4) | 2 pcs (a mix is possible) | Optionally, use [Mill-Max Single Row Socket Headers](https://keycapsss.com/keyboard-parts/parts/100/single-row-socket-headers-pins-mill-max-series-315), to make it hot-swappable. ||
-| Key switch (MX) | 58 pcs |  ||
-| [Kailh switch socket](https://keycapsss.com/keyboard-parts/parts/49/kailh-hot-swap-pcb-sockets-10-pcs) | 58 pcs |  ||
-| Diodes 1N4148W (SMD) | 58 pcs |||
+| Kimiko PCB | 2 pcs | PCB is reversible |
+| Kimiko case | 1 set | 2 solid panels, 2 with holes for switches and screws/spacer |
+| [Pro Micro](https://keycapsss.com/keyboard-parts/parts/79/arduino-pro-micro-atmega32u4-controller) or [Puchi-C](https://keycapsss.com/keyboard-parts/parts/141/Puchi-C-pro-micro-replacement-with-usb-c-and-atmega32u4) | 2 pcs (a mix is possible) | I highly recommend, use [Mill-Max Single Row Socket Headers](https://keycapsss.com/keyboard-parts/parts/100/single-row-socket-headers-pins-mill-max-series-315), or [Spring-loaded pin headers](https://keycapsss.com/keyboard-parts/parts/91/spring-loaded-pin-headers-12-pin-2pcs-conthrough), to make it Hot-swappable. ||
+| Key switch (MX) | 58-60 pcs | 60 if you do not install the rotary encoder. 3-Pin and 5-Pin switches are supported.  ||
+| [Kailh MX switch socket](https://keycapsss.com/keyboard-parts/parts/49/kailh-hot-swap-pcb-sockets-10-pcs) | 58-60 pcs |  ||
+| Diodes 1N4148W (SMD SOD-123/SOD-123FL) | 60 pcs |||
 | TRRS jack | 2 pcs ||
 | Tactile switch | 2 pcs | Reset switch ||
 | TRRS cable | 1 cable | Must be a 4-pole cable ||
-| Key caps | 58 pcs | 1.5U caps, can also be 1U ||
-| Micro USB or USB-C cable | 1 pcs | Dependent what you use on the master half. ||
+| Key caps | 58-60 pcs | Keycap for the thumb switch can be a 1.5U, or a 1U keycap. ||
+| Micro USB or USB-C cable | 1 pcs | Dependent what you use on the master half (Pro Micro = Micro USB / Puchi-C = USB-C). ||
 
 
 ### Optionally parts
 
 Part name | Quantity | Remarks | Photo |
 | ------- | -------- | ------- | ----- |
-| [OLED module](https://keycapsss.com/keyboard-parts/parts/80/ssd1306-oled-lcd-display-0.91-inch-128x32-i2c-white) | 2 pcs | It is possible to use only one display ||
-| SK6812 Mini | 12 pcs | RGB led's for underglow ||
-| SK6812 Mini-E | 58 pcs |RGB led's for keycap backlight **(underglow led's must be soldered, because they are connected in series)** ||
+| [Rotary encoder](https://keycapsss.com/keyboard-parts/parts/59/rotary-encoder-with-switch) |0-2 pcs| One per side are supported. |
+| [OLED 0.91 module](https://keycapsss.com/keyboard-parts/parts/80/ssd1306-oLED-lcd-display-0.91-inch-128x32-i2c-white) | 0-2 pcs | It is possible to use only one display. ||
+| [SK6812 Mini-E LEDs](https://keycapsss.com/keyboard-parts/parts/114/sk6812-mini-e-rgb-smd-LED) | 60 pcs |RGB LEDs for the keycap backlight. **Also the LEDs under the encoder must be soldered, because they are wired in series.** ||
 
 
 ## Introduction
-**Note that the case of the black version has a scratch-resistant paint (solder resist) that can arrive with scratches from shipping and transportation. This is the nature of the product.** 
 
 **In addition, please be careful, as the case will be scratched if it hits or rubs a hard thing after assembly.**
 
@@ -59,13 +60,12 @@ This PCB is reversible. We will mount parts **on each side.**
 
 Mark the surface with masking tape to make it easy to keep track of the back and front of each board.
 
-![](img/lily58l-mx-1.jpg)
-
+The pictures in this guide show the PCB for the left side.
 
 ## Attach the diodes
 The diodes are mounted on the **back side** of the board.
 
-Pay attention to orientation, Diodes are polarized. If the orientation is incorrect, the key will not respond.
+Pay attention to orientation, diodes are polarized. If the orientation is incorrect, the key will not respond.
 
 Solder the diode as shown in the following figure.
 
@@ -74,56 +74,44 @@ Solder the diode as shown in the following figure.
 Apply preliminary solder (melt a small amount on the substrate) on one pad of the PCB diode.
 
 ![](img/smd-diode-solder-1.jpg)
+*PCB back side (left half)*
 
 Then use tweezers to solder one side of the diode, using the pre-soldering to secure the diode.
 
-![](img/smd-diode-solder-2.jpg)
-
-Then solder the remaining side.
-  
+Then solder the remaining side.  
 When all diodes have been soldered, check for missing spots.
 
-![](img/smd-diode-solder-3.jpg)
+![](img/smd-diode-solder-2.jpg)
+*PCB back side (left half)*
 
 You can use a multimeter on the front side of the board to ensure that the solder connections are good and that the orientation of the diodes is correct.
 
-## Solder the led's for underglow (optionally)
-Solder the SK6812 Mini led's (without legs), to the marked positions on the **back side** of the board.
+![](img/smd-diode-solder-3.jpg)
+*All diodes soldered on back side (left half)*
 
-![SK6812 Mini RGB led's](img/sk6812-mini-led-1.jpg)
+## Solder the LEDs for keycap back (optionally)
 
-**Pay attention to orientation of the led's.**
+Solder the SK6812 Mini-E LEDs (with legs), on the **back side** of the board.  
+**Pay attention to orientation of the LEDs.**
 
-![SK6812-Mini led orientation](img/sk6812-mini-led-2.jpg) 
+We solder LEDs using the same approach as for the diodes.
+Begin by pre-soldering one side of the LED pad.
 
-The led's are connected in series. If a led is broken or has bad solder connections, the following led's will not light up.
+![SK6812 Mini-E soldering](img/sk6812-mini-e-LED-1.jpg) 
 
+Place the component, and hold it in place with tweezers.  
 
-## Solder the led's for keycap back (optionally)
-> **It is necessary to solder all SK6812 Mini led's (underglow) in the previous step, to use the led's for the keycaps (all leds are connected in series).**
+![SK6812 Mini-E soldering](img/sk6812-mini-e-LED-2.jpg)
 
-Solder the SK6812 Mini-E led's (with legs), on the **back side** of the board.  
-**Pay attention to orientation of the led's.**
+Then solder the other pad's.
 
-We solder LEDs using the same approach as for the diodes.In that case: tin one pad, put the LED on, reflow, solder the other three pins.
+![SK6812 Mini-E soldering](img/sk6812-mini-e-LED-3.jpg)
 
-![](img/sk6812-mini-e-led-1.jpg)
+**It is necessary to solder all LEDs, even if you use the rotary encoder.**
 
-Correct orientation from the front view.
-
-![](img/sk6812-mini-e-led-4.jpg)
-
-Begin by pre-soldering one side of the Led pad, place the component, and hold it in place with tweezers. 
-
-![](img/sk6812-mini-e-led-2.jpg)
-
-It is necessary to solder all led's, even if you use the rotary encoder.
-
-![](img/sk6812-mini-e-led-3.jpg)
-
-For the LEDs it's important to keep the heating as short as possible. Try to not touch the LED itself with the iron but rather only the solder that's supposed to connect to the metal pin. Use flux. 
-The led's are connected in series. If a led is broken or has bad solder connections, the following led's will either not light up at all or will light up in a different color than the default (red).
-Doublecheck the last LED that lights up properly and the first that doesn't.
+For the LEDs it's important to keep the heating as short as possible. Try to not touch the LED itself with the iron but rather only the solder that's supposed to connect to the metal pin. Use flux.  
+The LEDs are connected in series. If a LED is broken or has bad solder connections, the following LEDs will either not light up at all or will light up in a different color than the default (red).
+Doublecheck the last LED that lights up properly and the first that doesn't.  
 On the LEDs with legs it's easily possible to get a loose connection. 
 
 ## Soldering the TRRS jack and reset switch
@@ -131,147 +119,124 @@ The TRRS jack and the reset switch are mounted on the **front side** (opposite s
 Attach the parts and fix them temporarily with masking tape. Turn over the board and solder the pins, making sure that the TRRS jack and reset switch are in firm contact with the board.
 
 ![TRRS jack and reset button](img/trrs-jack-reset-button-1.jpg)
+*PCB front side (left half)*
 
 **be careful** don't be careless doing this part. TRRS jacks are parts you can indeed mess up. I promise. 
 
-## Attach the OLED display
+## Attach the OLED socket
 On the **front side** of the board, apply enough solder to bridge the four jumper terminals in the Pro Micro section.
 
-![](img/oled-jumper-pins-1.jpg)
+![](img/oLED-jumper-pins-1.jpg)
+*PCB front side (left half)*
 
 Attach the connector for the OLED on front side (opposite side of diodes). Be careful to avoid adding a lot of solder, as it is easy for solder to flow into the connector.
 
 ## Install Pro Micro (with sockets)
 
-**Before installing the Pro Micro, no matter which (can also happen on the elite c), check whether they are working by plugging them in and flashing the default keymap.** 
+**Before installing the Pro Micro, no matter which (can also happen on the Puchi-C), check whether they are working by plugging them in and [flashing the default keymap](#flash-keymap-on-pro-micro/puchi-c).**
 
-The pin header enclosed in the bag of Pro Micro can be used, but i recommend to use the Mill-Max socket headers.
+Open [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest) and connect your Pro Micro/Puchi-C to the computer.  
+If your Pro Micro/Puchi-C is complete new (without a firmware on it), a message *"***Atmel DFU device connected: ..."* should appear.  
+If the message does not appear, press the reset button on the Puchi-C, or short RST & GND pins on the Pro Micro to bringt it into the DFU mode.
+If the message appears, the device should work properly.
+
+![](img/Puchi-C-working-test-1.jpg)
+
+The pin header enclosed in the bag of Pro Micro can be used, but i highly recommend to use the Mill-Max socket headers, or Spring-loaded pin headers.
 With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros will break at some point)
 
 ![Standard header/ Mill-Max socket header](img/mill-max-12-single-row-socket-1.jpg)
 
 Note the **outlined sets of holes in PCB,** and insert the Standard header/Mill-Max sockets into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**
 
-![Pro Micro_PCB](img/pro-micro-solder-location-1.png)
+![Pro Micro_PCB](img/pro-micro-solder-location-1.jpg)
+*PCB front side (left half)*
 
-Solder the Standard header/Mill-Max sockets from the **back side**.
+Solder the Standard header/Mill-Max sockets from the **back side** and pay attention not creating solder bridges.
 
-![Mill-Max socket headers](img/mill-max-socket-header-1.jpg)
+Insert the Mill-Max pins (you can also use legs from through hole diodes/resistor) with a plier into the sockets.
 
-Insert the pins (you can also use legs from through hole diodes/resistor) with a plier into the sockets.
+![](img/mill-max-12-single-row-socket-5.jpg)
 
 ![](img/mill-max-12-single-row-socket-2.jpg)
+*Example image with diode legs*
 
-Place the Pro Micro **(Micro-USB socket facing down)**.
+Place the Pro Micro/Puchi-C **(USB socket facing down)**.
+
+![](img/mill-max-12-single-row-socket-6.jpg)
 
 ![](img/mill-max-12-single-row-socket-3.jpg)
+*Example image*
 
-Solder the pins and shorten the pins with diagonal pliers.
+Solder the pins. Shorten the pins with diagonal pliers (not necessary if you use the Mill-Max pins).
 
 ![](img/mill-max-12-single-row-socket-4.jpg)
+*Example image*
 
 For other ways to mount your Pro Micros, look at [the crkbd build guide.](https://nicedoc.io/foostan/crkbd/blob/master/corne-classic/doc/buildguide_en.md#using-pin-sockets)
 
-Before you ask: The Procedure is absolutely identical for the Elite-C.
+## Install the OLED (SD1306) on the socket
 
-### Some tipps for installing the OLED on the socket
+Remove the black plastic thingy that's part of the header installed in the OLED. Then you'll be able to shorten it's legs with your pliers and put them into the socket, resulting into a way more low profile OLED.  
 
-- if you soldered the socket for the OLED, remove the black plastic thingy that's part of the header installed in the OLED. The you'll be able to shorten it's legs with your pliers and put them into the socket, resulting into a way more low profile OLED.  
-- If you do not have sockets installed, you can add height to the oled, by removing pins out of headers, and putting the empty black plastics part onto the headers of the OLED.
+![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-1.jpg) ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-2.jpg) 
 
-> Add image here: "Soldered 4pin socket for Oled"
 
 ## Solder the rotary encoder
 
 Soldering the rotary encoder is as simple as any other component. Put the encoder from the front into the holes on the PCB, just below the screen, and solder it from the back.
 
-**Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. (you can also just clip them off)
+> **Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. (you can also just clip them off)
 
-**For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will serve, inter alia, as a switch in the matrix.
+ > **For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will serve, inter alia, as a switch in the matrix.
 The lower three pins do the actual rotary-encoding part
 
 ### You have reached a checkpoint 
 
-Plug your keyboard, look what happens, solve problems, be happy if there are none. (if you followed all the steps your pro micros should have firmware at this point)
-By now you can also checked whether all switches will be able to work. In order to do so, short the pads on which the kailh sockets will be installed (next step) with tweezers. 
+Plug your keyboard (**do not plug-in or remove the TRRS cable, while a Pro Micro is connected via USB**), look what happens, solve problems, be happy if there are none (if you followed all the steps your pro micros should have [firmware](#flash-keymap-on-pro-micro) at this point).  
+By now you can also checked whether all switches will be able to work. In order to do so, open the [QMK Test Site](https://config.qmk.fm/#/test), short the pads on which the kailh sockets will be installed (next step) with tweezers. 
 
-> Add image here: "Test switches with tweezer"
+![Tweezers test switch](img/kailh-socket-pad-test-1.jpg)
 
 ## Solder the sockets
 The sockets are mounted on the **back side**, the same side as the diodes.
 
-Much like the approach used for the diodes above, begin by pre-soldering one side of the socket pad, place the component, and hold it in place with tweezers. (The sockets can also be held in place by hand, but please take extra care not to burn yourself.)
-The image shows a soldered MX socket.
+Much like the approach used for the diodes above, begin by pre-soldering one side of the socket pad.
 
-The sockets take **way** more solder than the other components like the LEDs and the diodes. But don't exaggerate... 
+![Solder Kailh Hotswap sockets](img/solder-kailh-mx-sockets-1.jpg)
 
-> Add image here: "Kailh hot swap sockets"
+Place the component, and hold it in place with tweezers. (The sockets can also be held in place by hand, but please take extra care not to burn yourself.)
 
-## Case assembly
+![Solder Kailh Hotswap sockets](img/solder-kailh-mx-sockets-2.jpg)
 
-### Attach the spacer
-Attach four 10mm round spacers to the holes near Pro Micro.
-It's easy to insert a screw from the back of the board and attach the spacer from the top.
-![2019-01-26 15 02 38](https://user-images.githubusercontent.com/6285554/51967859-c0913b00-24b3-11e9-966c-f3621ed398e5.jpg)
-
-Peel off the masking tape used to identify the front and back of the board.
-
-### Attach the key switch
-Attach the top plate spacers for alignment. (MX: 7mm Choc: 4mm)
-![2019-01-26 14 56 05](https://user-images.githubusercontent.com/6285554/51967395-912dfe80-24b2-11e9-9cc7-b4520063f36c.jpg)
-![2019-01-26 14 56 24](https://user-images.githubusercontent.com/6285554/51967376-83787900-24b2-11e9-82a0-850556daccfc.jpg)
-
-Attach four key switches to the top plate. (In the case of Choc switches, starting with two switches in the plate may be easier.)
-![2019-01-26 14 58 48](https://user-images.githubusercontent.com/6285554/51967380-87a49680-24b2-11e9-80b9-a45564afc8cf.jpg)
-  
-Insert the switch into the board for alignment, and line up the components.
-![2019-01-26 15 01 12](https://user-images.githubusercontent.com/6285554/51967478-c3d7f700-24b2-11e9-9f2f-4e75efc215a1.jpg)
+> The sockets take **way** more solder than the other components like the LEDs and the diodes. But don't exaggerate... 
 
 
-After confirming that there are no bends in the switch pins, you can attach it firmly by starting from the middle row and working outward.
-Be careful: KailhBOX switches and Choc switches require some power for installation.
-Always be careful to put the switches in nice and straight, otherwise you'll bend the pins and scratch the PCB.
-After mounting the plate, push the switches again to make sure that installation is complete.
-![2019-01-26 15 10 06](https://user-images.githubusercontent.com/6285554/51967840-b66f3c80-24b3-11e9-8f50-6d8d31fe85e5.jpg)
 
-### Pro Micro protective acrylic installation
-Peel off the protective plastic layer covering the acrylic, and attach the acrylic to the board.
-**Mount with the wider side (labeled "幅が広い" here) outwards.** 
-
-![Attach with screws](https://user-images.githubusercontent.com/6285554/48837829-c4288780-edc9-11e8-8efb-6714d8e68e92.png).
-
-![2019-01-26 15 21 15](https://user-images.githubusercontent.com/6285554/51967842-b8d19680-24b3-11e9-8402-85180ce10403.jpg)
-
-## Flash keymap on Pro Micro
-The board requires a keymap in order to function. This section assumes that you're familiar with keymaps and the use of the QMK tool. If not, please refer to [the QMK "Getting Started" guide](https://docs.qmk.fm/#/getting_started_build_tools) (Windows: MSYS2; Mac, Linux: avrdude)
+## Flash keymap on Pro Micro/Puchi-C
+The board requires a [keymap](https://github.com/qmk/qmk_firmware/tree/master/keyboards/keycapsss/kimiko) in order to function. This section assumes that you're familiar with keymaps and the use of the QMK tool. If not, please refer to [the QMK "Getting Started" guide](https://docs.qmk.fm/#/getting_started_build_tools) (Windows: MSYS2; Mac, Linux: avrdude)
 
 The [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases) can be used to write non-customized keymaps via a GUI, avoiding the need to configure a local QMK environment. (For custom keymaps, it's recommended to build the full environment described above).
  
 Clone/download the QMK firmware and execute the following in the [qmk_firmware](https://github.com/qmk/qmk_firmware) directory to write the default Lily58L keymap
 
-    make lily58/light:lily58l:avrdude
+    make make keycapsss/kimiko:default:avrdude
 
 
 When **`Detecting USB port, reset your controller now...`** is displayed, press the reset button on the keyboard to start writing.
 Each half of the keyboard must be programmed separately using this approach.
 
-If you're using DFU bootloader (in case of the elite c), replace the 'avrdude' with 'dfu'
+If you're using DFU bootloader (in case of the Puchi-C/Elite-C), replace the 'avrdude' with 'dfu'
 
 ## Default keymap
-The default keymap is laid out on the assumption that it will be used in the MacOS/US keyboard environment. Feel free to get creative and experiment with keymaps that match your preferences; consider changing to the JIS layout or adding a key to switch between English and Kana, for example.
+The [default keymap](https://github.com/qmk/qmk_firmware/blob/master/keyboards/keycapsss/kimiko/keymaps/default/keymap.c) is laid out on the assumption that it will be used in the MacOS/US keyboard environment. Feel free to get creative and experiment with keymaps that match your preferences.
 
-The best of my own keyboard:
-![lily58_default](https://user-images.githubusercontent.com/6285554/47273241-38ee8300-d5cc-11e8-9099-10c1b35e24fc.png)
-
-## Operation check
-Connect the left and right sides with a TRRS cable, connect the MicroUSB cable to Pro Micro on the left side (in the case of the default keymap), and check if the key responds.
-The build is completed by attaching the four rubber feet to the back of each board. Thank you for your hard work.
-![2019-01-26 15 24 52](https://user-images.githubusercontent.com/6285554/51967992-24b3ff00-24b4-11e9-8cd3-1e679094682f.jpg)
-![unadjustednonraw_thumb_2ddc](https://user-images.githubusercontent.com/6285554/53640050-6203dc00-3c6e-11e9-9434-5591ed3e414f.jpg)
+![Kimiko default layout](img/kimiko-keymap-default-1.png)
 
 
-### Congratulations(?)
-If everything works: You have built your lily58L. Have fun!
+
+### Congratulations 🥳
+If everything works: You have built your Kimiko. Have fun!
 If something doesn't work:
 
 ## When in trouble
@@ -288,11 +253,10 @@ In the case of badly attached socket:
 Re-solder the problem socket, or reflow and add solder if the joint is weak.
   
 In the case of badly attached diode:
-Check the direction of the diode in question. If it is wrong, remove it and re-solder it. Additionally, if there isn't enough solder, please re-solder.
+Check the [direction of the diode](#attach-the-diodes) in question. If it is wrong, remove it and re-solder it. Additionally, if there isn't enough solder, please re-solder.
 
 ### Q. A symbol different from the symbol input by "@" or "[" etc. is input (on Windows, etc.)
-Since recognition of keyboard is recognized as JIS keyboard on OS, another symbol will be input when inputting with Lily 58 (treated as US keyboard).
-Please set Lily 58 as a US keyboard in the OS keyboard settings. After switching, switching to Japanese input becomes the switching key for the US keyboard, and it differs from the JIS keyboard, so please be careful (it can be customized with the keymap etc.).
+Please set OS Keyboard Layout as a US keyboard in the OS keyboard settings.
 
 
 **If you have any problems, please feel free to send a message on Discord (https://discord.gg/frjFXZB) or Twitter: [@keycapsss](https://twitter.com/keycapsss)**
@@ -300,15 +264,34 @@ Please set Lily 58 as a US keyboard in the OS keyboard settings. After switching
 ## Customize the default keymap
 This self-made keyboard use the QMK firmware, described above. The QMK firmware is highly customizable, and you can unlock a lot functionality simply by editing the keymap.
 ### Edit keymap.c and customize
-When customizing a keymap, start by making a copy of the `qmk_firmware/keyboards/lily58/keymaps/lily58l` folder and modifying that directory's internal `keymap.c` file.
+When customizing a keymap, start by making a copy of the [`qmk_firmware/keyboards/keycapsss/kimiko/keymaps/default`](https://github.com/qmk/qmk_firmware/blob/master/keyboards/keycapsss/kimiko/keymaps/default/) folder and modifying that directory's internal `keymap.c` file.
 Please refer to the [official QMK documentation](https://docs.qmk.fm/#/keycodes) for the key codes and programming specifics.
+
 
 After changing the keymap,
 
-    make lily58/light:lily58lcopy:avrdude
+    make keycapsss/kimiko:default:flash
 
 If you get an error, please double-check the board, connection and command.
 
+### Bootloader 
+
+**Pro Micro and Puchi-C/Elite-C have different bootloader.** Edit the `rule.mk` file in your keymap folder and add the following line to it.
+
+*Puchi-C or Elite-C*
+```
+BOOTLOADER = atmel-dfu
+```
+
+*Pro Micro*
+```
+BOOTLOADER = caterina
+```
+
+If you use the command `make keycapsss/...:flash`, it read the bootloader settings from the `rule.mk` and uses the right flashing software.
+If you don't have set the `BOOTLOADER` setting, you can change the command to `make keycapsss/...:caterina` for Pro Micro, or `make keycapsss/...:dfu` for Puchi-C/Elite-C
+
+More information on the [official QMK site](https://beta.docs.qmk.fm/using-qmk/guides/flashing/flashing#atmel-dfu).
 
 ### Handedness by EEPROM
 You can tell each side of the Keyboard, whether it's left or right, by writing it into it's eeprom. 
@@ -324,15 +307,6 @@ and
 
 	make make lily58/light:(yourkeymap):avrdude-split-right
 respectively.
-If you're using DFU bootloader (in case of the elite c), replace the 'avrdude' with 'dfu'
+If you're using DFU bootloader (in case of the Puchi-C), replace the `avrdude` with `dfu`
 
 From then on, your keyboard will know, which side they are, no matter which side you plug in. You won't have to use the flags again when flashing an update of your keymap.
-
-
-## Use "Per Key" LEDs without underglow LEDs
-
-If you don't want to use the underglow function with the SK6812-Mini LEDs, then bridget the solder pads on the following pictures with a small wire.
-
-![Left half - bridge underglow](img/lily58l-birdge-underglow-1.png)
-
-![Right half - bridge underglow](img/lily58l-birdge-underglow-2.png)
