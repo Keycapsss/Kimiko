@@ -126,7 +126,7 @@ Attach the parts and fix them temporarily with masking tape. Turn over the board
 ## Attach the OLED socket
 On the **front side** of the board, apply enough solder to bridge the four jumper terminals in the Pro Micro section.
 
-![](img/oLED-jumper-pins-1.jpg)
+![](img/oled-jumper-pins-1.jpg)
 *PCB front side (left half)*
 
 Attach the connector for the OLED on front side (opposite side of diodes). Be careful to avoid adding a lot of solder, as it is easy for solder to flow into the connector.
