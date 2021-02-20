@@ -184,12 +184,8 @@ Remove the black plastic thingy that's part of the header installed in the OLED.
 
 ## Solder the rotary encoder
 
-Soldering the rotary encoder is as simple as any other component. Put the encoder from the front into the holes on the PCB, just below the screen, and solder it from the back.
+I highly recommend to solder the rotary encoder, [**after you assembled the top plate**](#prepare-the-rotary-encoder). If it sits loose on the mid pcb, the clearance helps that the encoder fits in the top plate hole.
 
-> **Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. (you can also just clip them off)
-
- > **For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will serve, inter alia, as a switch in the matrix.
-The lower three pins do the actual rotary-encoding part
 
 ### You have reached a checkpoint 
 
@@ -211,12 +207,96 @@ Place the component, and hold it in place with tweezers. (The sockets can also b
 
 > The sockets take **way** more solder than the other components like the LEDs and the diodes. But don't exaggerate... 
 
+## Case assembly
 
+![case parts overview](img/case-all-parts-1.jpg)
+
+### Attach the spacer
+Attach two **10mm spacers** to the holes near TRRS jack with the **5mm screws**.
+It's easy to insert a screw from the back of the board and attach the spacer from the top.
+
+![Spacer for oled guard plate](img/case-spacer-guard-plate-1.jpg)
+
+Attach the **7mm spacer** to the top plate.
+
+![Top plate 7mm spacer](img/case-top-plate-spacer-1.jpg)
+
+### Prepare the rotary encoder
+
+Remove the alignment legs on the rotary encoder with diagonal pliers.
+
+![Rotary encoder cut legs](img/rotary-encoder-cut-legs-1.jpg)
+
+You can place one encoder per side, or leave it empty and place a switch at this position.
+
+![Rotary encoder position](img/rotary-encoder-position-1.jpg)
+
+**Do not solder the rotary encoder at this point.** If it sits loose on the mid pcb, the clearance helps that the encoder fits in the top plate hole.
+
+![](img/rotary-encoder-position-2.jpg)
+
+### Attach the key switch
+
+Attach four key switches to the top plate. The hole for the switch led is facing down.
+
+![Top plate with 4 switches](img/case-top-plate-spacer-switches.jpg)
+
+It's important that the switch pins are not bend.
+
+![Switch pin align](img/switch-pins-align-1.jpg)
+
+
+Insert the switch into the board for alignment, and line up the components.
+
+![](img/case-top-plate-align-2.jpg)
+![](img/case-top-plate-align-1.jpg)
+
+After confirming that there are no bends in the switch pins, you can attach it firmly by starting from the middle row and working outward.
+Be careful: some switches require some power for installation.
+Always be careful to put the switches in nice and straight, otherwise you'll bend the pins and scratch the PCB.
+After mounting the plate, push the switches again to make sure that installation is complete.
+
+![Top plate complete with switches](img/case-top-plate-complete-1.jpg)
+
+Confirm that the rotary encoder sits straight on the PCB.  
+Solder the 5 points.
+
+![Solder the rotary encoder](img/rotary-encoder-solder-1.jpg)
+
+Soldering the rotary encoder is as simple as any other component. Put the encoder from the front into the holes on the PCB, just below the screen, and solder it from the back.
+
+> **Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. (you can also just clip them off)
+
+ > **For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will serve, inter alia, as a switch in the matrix.
+The lower three pins do the actual rotary-encoding part
+
+
+### Pro Micro protective acrylic installation
+
+Peel off the protective plastic layer covering the acrylic.  
+Antistatic spray helps to counteract that the cover is a dust magnet. I use [Velind Antistatik Spray](https://amzn.to/2ZMTz93)* *affiliate link*
+
+![Guard plate protective film](img/guard-plate-2.jpg)
+
+Attach the acrylic plate to the board with 5mm screws.
+
+![Guard plate](img/guard-plate-3.jpg)
+![Guard plate](img/guard-plate-1.jpg)
+
+### Assemble the bottom plate
+
+To complete the case, attach the bottom plate with 5 screws and stick the 4 rubber feeds to the corners.
+
+![Bottom plate](img/case-bottom-plate-1.jpg)
+
+Your Kimiko keyboard is now complete.
+
+![](https://media.giphy.com/media/PudZiAbQDUEik/giphy.gif)
 
 ## Flash keymap on Pro Micro/Puchi-C
 The board requires a [keymap](https://github.com/qmk/qmk_firmware/tree/master/keyboards/keycapsss/kimiko) in order to function. This section assumes that you're familiar with keymaps and the use of the QMK tool. If not, please refer to [the QMK "Getting Started" guide](https://docs.qmk.fm/#/getting_started_build_tools) (Windows: MSYS2; Mac, Linux: avrdude)
 
-The [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases) can be used to write non-customized keymaps via a GUI, avoiding the need to configure a local QMK environment. (For custom keymaps, it's recommended to build the full environment described above).
+The [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases) can be used to write non-customized keymaps via a GUI, avoiding the need to configure a local QMK environment. (For custom keymaps/rotary encoder behavior, it's recommended to build the full environment described above).
  
 Clone/download the QMK firmware and execute the following in the [qmk_firmware](https://github.com/qmk/qmk_firmware) directory to write the default Lily58L keymap
 
@@ -226,7 +306,7 @@ Clone/download the QMK firmware and execute the following in the [qmk_firmware](
 When **`Detecting USB port, reset your controller now...`** is displayed, press the reset button on the keyboard to start writing.
 Each half of the keyboard must be programmed separately using this approach.
 
-If you're using DFU bootloader (in case of the Puchi-C/Elite-C), replace the 'avrdude' with 'dfu'
+If you're using DFU bootloader (in case of the Puchi-C/Elite-C), replace the `avrdude` with `dfu`.
 
 ## Default keymap
 The [default keymap](https://github.com/qmk/qmk_firmware/blob/master/keyboards/keycapsss/kimiko/keymaps/default/keymap.c) is laid out on the assumption that it will be used in the MacOS/US keyboard environment. Feel free to get creative and experiment with keymaps that match your preferences.
@@ -237,7 +317,7 @@ The [default keymap](https://github.com/qmk/qmk_firmware/blob/master/keyboards/k
 
 ### Congratulations 🥳
 If everything works: You have built your Kimiko. Have fun!
-If something doesn't work:
+[If something doesn't work](#when-in-trouble)
 
 ## When in trouble
 ### Q. One or more rows/columns of key switches do not respond
