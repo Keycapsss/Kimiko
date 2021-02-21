@@ -4,12 +4,12 @@
 
 ![Required tools for soldering](img/required-tools-1.jpg)
 
- * Soldering iron with adjustable temperature
- * Solder (i use Sn99.3Cu0.7 0.5mm/0.02inch)
- * Tweezers for the small SMD parts
- * Tip cleaner (wet sponge or brass wool)
- * Side cutters/flush cutters
- * Fine pliers
+* Soldering iron with adjustable temperature
+* Solder (i use Sn99.3Cu0.7 0.5mm/0.02inch)
+* Tweezers for the small SMD parts
+* Tip cleaner (wet sponge or brass wool)
+* Side cutters/flush cutters
+* Fine pliers
 
 Most parts I solder at 320-340°C. The SMD LEDs are temperature sensitive, so lower the temperature to 300-320°C.
 
@@ -44,7 +44,6 @@ Part name | Quantity | Remarks | Photo |
 | Key caps | 58-60 pcs | Keycap for the thumb switch can be a 1.5U, or a 1U keycap. ||
 | Micro USB or USB-C cable | 1 pcs | Dependent what you use on the master half (Pro Micro = Micro USB / Puchi-C = USB-C). ||
 
-
 ### Optionally parts
 
 Part name | Quantity | Remarks | Photo |
@@ -52,7 +51,6 @@ Part name | Quantity | Remarks | Photo |
 | [Rotary encoder](https://keycapsss.com/keyboard-parts/parts/59/rotary-encoder-with-switch) |0-2 pcs| One per side are supported. |
 | [OLED 0.91 module](https://keycapsss.com/keyboard-parts/parts/80/ssd1306-oLED-lcd-display-0.91-inch-128x32-i2c-white) | 0-2 pcs | It is possible to use only one display. ||
 | [SK6812 Mini-E LEDs](https://keycapsss.com/keyboard-parts/parts/114/sk6812-mini-e-rgb-smd-LED) | 60 pcs |RGB LEDs for the keycap backlight. **Also the LEDs under the encoder must be soldered, because they are wired in series.** ||
-
 
 ## Introduction
 
@@ -65,6 +63,7 @@ Mark the surface with masking tape to make it easy to keep track of the back and
 The pictures in this guide show the PCB for the left side.
 
 ## Attach the diodes
+
 The diodes are mounted on the **back side** of the board.
 
 Pay attention to orientation, diodes are polarized. If the orientation is incorrect, the key will not respond.
@@ -75,21 +74,21 @@ Solder the diode as shown in the following figure.
 
 Apply preliminary solder (melt a small amount on the substrate/"tin the pad") on one pad of the PCB diode.
 
-![](img/smd-diode-solder-1.jpg)
+![SMD diode orientation](img/smd-diode-solder-1.jpg)
 *PCB back side (left half)*
 
-Then use tweezers to slide the diode into position, whilst you heat the pre-soldered pad. 
+Then use tweezers to slide the diode into position, whilst you heat the pre-soldered pad.
 Remove the soldering iron and allow to cool, whilst still holding the diode.
 
 Then solder the remaining side.  
 When all diodes have been soldered, check for missing spots.
 
-![](img/smd-diode-solder-2.jpg)
+![Soldering diodes](img/smd-diode-solder-2.jpg)
 *PCB back side (left half)*
 
 You can use a multimeter in "diode mode", on the front side of the board to ensure that the solder connections are good and that the orientation of the diodes is correct.
 
-![](img/smd-diode-solder-3.jpg)
+![Soldering diodes](img/smd-diode-solder-3.jpg)
 *All diodes soldered on back side (left half)*
 
 ## Solder the LEDs for keycap back (optionally)
@@ -100,7 +99,7 @@ Solder the SK6812 Mini-E LEDs (with legs), on the **back side** of the board.
 We solder LEDs using the same approach as for the diodes.
 Begin by pre-soldering one side of the LED pad.
 
-![SK6812 Mini-E soldering](img/sk6812-mini-e-led-1.jpg) 
+![SK6812 Mini-E soldering](img/sk6812-mini-e-led-1.jpg)
 
 Place the component, and hold it in place with tweezers.  
 
@@ -112,12 +111,13 @@ Then solder the other pads.
 
 **It is necessary to solder all LEDs, even if you use the rotary encoder.**-- query this statement- should it be "even if you only want the per-key lighting"?
 
-For the LEDs it's important to keep the heating as short as possible. Try to not touch the plastic of the LED itself with the iron but only the the metal legs. Use flux if you are having difficulty. 
+For the LEDs it's important to keep the heating as short as possible. Try to not touch the plastic of the LED itself with the iron but only the the metal legs. Use flux if you are having difficulty.
 The LEDs are connected in series. If a LED is broken or has bad solder connections, the following LEDs will either not light up at all or will light up in a different color than the default (red).
 Doublecheck the last LED that lights up properly and the first that doesn't.  
-On the LEDs with legs it's easily possible to get a loose connection. 
+On the LEDs with legs it's easily possible to get a loose connection.
 
 ## Soldering the TRRS jack and reset switch
+
 The TRRS jack and the reset switch are mounted on the **front side** (opposite side of diodes).
 Attach the parts and fix them temporarily with masking tape. Turn over the board and solder the pins, making sure that the TRRS jack and reset switch are in firm contact with the board.
 
@@ -127,9 +127,10 @@ Attach the parts and fix them temporarily with masking tape. Turn over the board
 **Be careful** Double check your part orientation before you commit to soldering. A mistake here can mean painful desoldering experiences.
 
 ## Attach the OLED socket
+
 On the **front side** of the board, apply enough solder to bridge the four jumper terminals in the Pro Micro section.
 
-![](img/oled-jumper-pins-1.jpg)
+![Oled jumper pads](img/oled-jumper-pins-1.jpg)
 *PCB front side (left half)*
 
 Attach the connector for the OLED on front side (opposite side of diodes). Be careful to avoid adding a lot of solder, as it is easy for solder to flow into the connector. Make sure it is straight and at a right-angle to the PCB.
@@ -143,7 +144,7 @@ If your Pro Micro/Puchi-C is complete new (without a firmware on it), a message 
 If the message does not appear, press the reset button on the Puchi-C, or short RST & GND pins on the Pro Micro to bring it into the DFU mode.
 If the message appears, the device should be working correctly.
 
-![](img/Puchi-C-working-test-1.jpg)
+![QMK toolbox](img/Puchi-C-working-test-1.jpg)
 
 The pin header enclosed in the bag of Pro Micro can be used, but I highly recommend using the Mill-Max socket headers, or Spring-loaded pin headers.
 With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros- the USB port will break at some point!)
@@ -159,21 +160,21 @@ Solder the Standard header/Mill-Max sockets from the **back side** and pay atten
 
 Insert the Mill-Max pins (you can also use legs from through hole diodes/resistor) with pliers into the sockets.
 
-![](img/mill-max-12-single-row-socket-5.jpg)
+![Mill-Max sockets](img/mill-max-12-single-row-socket-5.jpg)
 
-![](img/mill-max-12-single-row-socket-2.jpg)
+![Mill-Max sockets](img/mill-max-12-single-row-socket-2.jpg)
 *Example image with diode legs*
 
 Place the Pro Micro/Puchi-C **(USB socket facing down)**.
 
-![](img/mill-max-12-single-row-socket-6.jpg)
+![Mill-Max sockets](img/mill-max-12-single-row-socket-6.jpg)
 
-![](img/mill-max-12-single-row-socket-3.jpg)
+![Mill-Max sockets](img/mill-max-12-single-row-socket-3.jpg)
 *Example image*
 
 Solder the pins. Shorten the pins with side cutters/flush cutters (not necessary if you use the Mill-Max pins).
 
-![](img/mill-max-12-single-row-socket-4.jpg)
+![Mill-Max sockets](img/mill-max-12-single-row-socket-4.jpg)
 *Example image*
 
 For other ways to mount your Pro Micros, look at [the crkbd build guide.](https://nicedoc.io/foostan/crkbd/blob/master/corne-classic/doc/buildguide_en.md#using-pin-sockets)
@@ -182,22 +183,21 @@ For other ways to mount your Pro Micros, look at [the crkbd build guide.](https:
 
 Remove the black plastic spacer that's part of the header installed in the OLED. Then you'll be able to shorten it's legs with your pliers and put them into the socket, resulting into a way more low profile OLED. You can wiggle it off with pliers carefully.
 
-![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-1.jpg) ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-2.jpg) 
-
+![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-1.jpg) ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-2.jpg)
 
 ## Solder the rotary encoder
 
 I highly recommend to solder the rotary encoder, [**after you assembled the top plate**](#prepare-the-rotary-encoder). If it sits loose on the mid pcb, the clearance helps that the encoder fits in the top plate hole.
 
-
-### You have reached a checkpoint 
+### You have reached a checkpoint
 
 Plug your keyboard (**do not plug-in or remove the TRRS cable, while a Pro Micro is connected via USB**), look what happens, solve problems, be happy if there are none (if you followed all the steps your pro micros should have [firmware](#flash-keymap-on-pro-micro) at this point).  
-By now you can also checked whether all switches will be able to work. In order to do so, open the [QMK Test Site](https://config.qmk.fm/#/test), short the pads on which the kailh sockets will be installed (next step) with tweezers. 
+By now you can also checked whether all switches will be able to work. In order to do so, open the [QMK Test Site](https://config.qmk.fm/#/test), short the pads on which the kailh sockets will be installed (next step) with tweezers.
 
 ![Tweezers test switch](img/kailh-socket-pad-test-1.jpg)
 
 ## Solder the sockets
+
 The sockets are mounted on the **back side**, the same side as the diodes.
 
 Much like the approach used for the diodes above, begin by pre-soldering one side of the socket pad.
@@ -208,13 +208,14 @@ Place the component, and hold it in place with tweezers. (The sockets can also b
 
 ![Solder Kailh Hotswap sockets](img/solder-kailh-mx-sockets-2.jpg)
 
-> The sockets take **way** more solder than the other components like the LEDs and the diodes. But don't exaggerate... 
+> The sockets take **way** more solder than the other components like the LEDs and the diodes. But don't exaggerate...
 
 ## Case assembly
 
 ![case parts overview](img/case-all-parts-1.jpg)
 
 ### Attach the spacer
+
 Attach two **10mm spacers** to the holes near TRRS jack with the **5mm screws**.
 It's easy to insert a screw from the back of the board and attach the spacer from the top.
 
@@ -240,7 +241,7 @@ You can place one encoder per side, or leave it empty and place a switch at this
 
 **Do not solder the rotary encoder at this point.** If it sits loose on the mid pcb, the clearance helps that the encoder fits in the top plate hole.
 
-![](img/rotary-encoder-position-2.jpg)
+![Rotary encoder positions](img/rotary-encoder-position-2.jpg)
 
 ### Attach the key switch
 
@@ -252,11 +253,10 @@ It's important that the switch pins are not bend.
 
 ![Switch pin align](img/switch-pins-align-1.jpg)
 
-
 Insert the switch into the board for alignment, and line up the components.
 
-![](img/case-top-plate-align-2.jpg)
-![](img/case-top-plate-align-1.jpg)
+![Top plate](img/case-top-plate-align-2.jpg)
+![Top plate align](img/case-top-plate-align-1.jpg)
 
 After confirming that there are no bends in the switch pins, you can attach it firmly by starting from the middle row and working outward.
 Be careful: some switches require some power for installation.
@@ -272,17 +272,16 @@ Solder the 5 points.
 
 Soldering the rotary encoder is as simple as any other component. Put the encoder from the front into the holes on the PCB, just below the screen, and solder it from the back.
 
-> **Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. (you can also just clip them off)
+**Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. (you can also just clip them off)
 
- > **For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will behave as a normal keyswitch in the matrix.
- 
+> **For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will behave as a normal keyswitch in the matrix.
+
 The lower three pins do the actual rotary-encoding part
-
 
 ### Pro Micro protective acrylic installation
 
 Peel off the protective plastic layer covering the acrylic.  
-Antistatic spray helps to counteract that the cover is a dust magnet. I use [Velind Antistatik Spray](https://amzn.to/2ZMTz93)* *affiliate link*
+Antistatic spray helps to counteract that the cover is a dust magnet. I use [Velind Antistatik Spray](https://amzn.to/2ZMTz93)**affiliate link*
 
 ![Guard plate protective film](img/guard-plate-2.jpg)
 
@@ -299,17 +298,19 @@ To complete the case, attach the bottom plate with 5 screws and stick the 4 rubb
 
 Your Kimiko keyboard is now complete.
 
-![](https://media.giphy.com/media/PudZiAbQDUEik/giphy.gif)
+![Proud](https://media.giphy.com/media/PudZiAbQDUEik/giphy.gif)
 
 ## Flash keymap on Pro Micro/Puchi-C
+
 The board requires a [keymap](https://github.com/qmk/qmk_firmware/tree/master/keyboards/keycapsss/kimiko) in order to function. This section assumes that you're familiar with keymaps and the use of the QMK tool. If not, please refer to [the QMK "Getting Started" guide](https://docs.qmk.fm/#/getting_started_build_tools) (Windows: MSYS2; Mac, Linux: avrdude)
 
 The [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases) can be used to write non-customized keymaps via a GUI, avoiding the need to configure a local QMK environment. (For custom keymaps/rotary encoder behavior, it's recommended to build the full environment described above).
- 
+
 Clone/download the QMK firmware and execute the following in the [qmk_firmware](https://github.com/qmk/qmk_firmware) directory to write the default Lily58L keymap
 
-    make make keycapsss/kimiko:default:avrdude
-
+```bash
+make make keycapsss/kimiko:default:avrdude
+```
 
 When **`Detecting USB port, reset your controller now...`** is displayed, press the reset button on the keyboard to start writing.
 Each half of the keyboard must be programmed separately using this approach.
@@ -317,21 +318,24 @@ Each half of the keyboard must be programmed separately using this approach.
 If you're using DFU bootloader (in case of the Puchi-C/Elite-C), replace the `avrdude` with `dfu`.
 
 ## Default keymap
+
 The [default keymap](https://github.com/qmk/qmk_firmware/blob/master/keyboards/keycapsss/kimiko/keymaps/default/keymap.c) is laid out on the assumption that it will be used in the MacOS/US keyboard environment. Feel free to get creative and experiment with keymaps that match your preferences.
 
 ![Kimiko default layout](img/kimiko-keymap-default-1.png)
 
-
-
 ### Congratulations 🥳
+
 If everything works: You have built your Kimiko. Have fun!
 [If something doesn't work](#when-in-trouble)
 
 ## Troubleshooting
+
 ### Q. One or more rows/columns of key switches do not respond
+
 A. The Pro Micro board may not be soldered and attached firmly. Check again, and re-solder and reinstall if necessary.
 
-### Q. A single key switch doesn't respond 
+### Q. A single key switch doesn't respond
+
 A. There may be a problem with the key switch's insertion, socket or diode soldering.
 
 In the case of bad key switch insertion:
@@ -344,35 +348,41 @@ In the case of badly attached diode:
 Check the [direction of the diode](#attach-the-diodes) in question. If it is wrong, remove it and re-solder it. Additionally, if there isn't enough solder, please re-solder.
 
 ### Q. A symbol different from the symbol input by "@" or "[" etc. is input (on Windows, etc.)
+
 Please set OS Keyboard Layout as a US keyboard in the OS keyboard settings.
 
-
-**If you have any problems, please feel free to send a message on Discord (https://discord.gg/frjFXZB) or Twitter: [@keycapsss](https://twitter.com/keycapsss)**
+**If you have any problems, please feel free to send a message on Discord (<https://discord.gg/frjFXZB>) or Twitter: [@keycapsss](https://twitter.com/keycapsss)**
 
 ## Customize the default keymap
+
 This self-made keyboard use the QMK firmware, described above. The QMK firmware is highly customizable, and you can unlock a lot functionality simply by editing the keymap.
+
 ### Edit keymap.c and customize
+
 When customizing a keymap, start by making a copy of the [`qmk_firmware/keyboards/keycapsss/kimiko/keymaps/default`](https://github.com/qmk/qmk_firmware/blob/master/keyboards/keycapsss/kimiko/keymaps/default/) folder and modifying that directory's internal `keymap.c` file.
 Please refer to the [official QMK documentation](https://docs.qmk.fm/#/keycodes) for the key codes and programming specifics.
 
-
 After changing the keymap,
 
-    make keycapsss/kimiko:default:flash
+```bash
+make keycapsss/kimiko:default:flash
+```
 
 If you get an error, please double-check the board, connection and command.
 
-### Bootloader 
+### Bootloader
 
 **Pro Micro and Puchi-C/Elite-C have different bootloader.** Edit the `rule.mk` file in your keymap folder and add the following line to it.
 
-*Puchi-C or Elite-C*
-```
+#### Puchi-C or Elite-C_
+
+```c
 BOOTLOADER = atmel-dfu
 ```
 
-*Pro Micro*
-```
+#### Pro Micro
+
+```c
 BOOTLOADER = caterina
 ```
 
@@ -382,21 +392,24 @@ If you don't have set the `BOOTLOADER` setting, you can change the command to `m
 More information on the [official QMK site](https://beta.docs.qmk.fm/using-qmk/guides/flashing/flashing#atmel-dfu).
 
 ### Handedness by EEPROM
-You can tell each side of the Keyboard, whether it's left or right, by writing it into it's eeprom. 
-In order to do so, first put 
 
-	#define EE_HANDS
+You can tell each side of the Keyboard, whether it's left or right, by writing it into it's eeprom.  
+In order to do so, first put `#define EE_HANDS` into your config.h.
+Then flash the keymap with
 
-into your config.h. 
-Then flash the keymap with 
-	
-	make make keycapsss/kimiko:(yourkeymap):avrdude-split-left 
+```bash
+make make keycapsss/kimiko:(yourkeymap):avrdude-split-left 
+```
+
 and
 
-	make make keycapsss/kimiko:(yourkeymap):avrdude-split-right
+```bash
+make make keycapsss/kimiko:(yourkeymap):avrdude-split-right
+```
+
 respectively.
 If you're using DFU bootloader (in case of the Puchi-C), replace the `avrdude` with `dfu`
 
 From then on, your keyboard will know, which side they are, no matter which side you plug in. You won't have to use the flags again when flashing an update of your keymap.
 
-If you have any problems that aren't answered here, consider joining our discord server at: (https://discord.gg/5Vfa9azMUr)
+If you have any problems that aren't answered here, consider joining our discord server at: (<https://discord.gg/5Vfa9azMUr>)
