@@ -230,6 +230,10 @@ Remove the alignment legs on the rotary encoder with diagonal pliers.
 
 ![Rotary encoder cut legs](img/rotary-encoder-cut-legs-1.jpg)
 
+If your rotary encoder has a metal surface at the bottom, cover it with some isolation tape, to prevent shorts on the LED pads.
+
+![Rotary encoder isolation tape](img/rotary-encoder-isolation-tape-1.jpg)
+
 You can place one encoder per side, or leave it empty and place a switch at this position.
 
 ![Rotary encoder position](img/rotary-encoder-position-1.jpg)
