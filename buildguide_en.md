@@ -4,12 +4,14 @@
 
 ![Required tools for soldering](img/required-tools-1.jpg)
 
- * Solder iron with adjustable temperature
+ * Soldering iron with adjustable temperature
  * Solder (i use Sn99.3Cu0.7 0.5mm/0.02inch)
  * Tweezers for the small SMD parts
  * Tip cleaner (wet sponge or brass wool)
+ * Side cutters/flush cutters
+ * Fine pliers
 
-Most parts i solder at 320-340°C. The SMD LEDs are temperature sensitive, so lower the temperature to 300-320°C.
+Most parts I solder at 320-340°C. The SMD LEDs are temperature sensitive, so lower the temperature to 300-320°C.
 
 ### How to solder tips
 
@@ -31,7 +33,7 @@ Most parts i solder at 320-340°C. The SMD LEDs are temperature sensitive, so lo
 Part name | Quantity | Remarks | Photo |
 | ------- | -------- | ------- | ----- |
 | Kimiko PCB | 2 pcs | PCB is reversible |
-| Kimiko case | 1 set | 2 solid panels, 2 with holes for switches and screws/spacer |
+| Kimiko case | 1 set | 2 solid panels, 2 plates, and screws/spacer |
 | [Pro Micro](https://keycapsss.com/keyboard-parts/parts/79/arduino-pro-micro-atmega32u4-controller) or [Puchi-C](https://keycapsss.com/keyboard-parts/parts/141/Puchi-C-pro-micro-replacement-with-usb-c-and-atmega32u4) | 2 pcs (a mix is possible) | I highly recommend, use [Mill-Max Single Row Socket Headers](https://keycapsss.com/keyboard-parts/parts/100/single-row-socket-headers-pins-mill-max-series-315), or [Spring-loaded pin headers](https://keycapsss.com/keyboard-parts/parts/91/spring-loaded-pin-headers-12-pin-2pcs-conthrough), to make it Hot-swappable. ||
 | Key switch (MX) | 58-60 pcs | 60 if you do not install the rotary encoder. 3-Pin and 5-Pin switches are supported.  ||
 | [Kailh MX switch socket](https://keycapsss.com/keyboard-parts/parts/49/kailh-hot-swap-pcb-sockets-10-pcs) | 58-60 pcs |  ||
@@ -54,7 +56,7 @@ Part name | Quantity | Remarks | Photo |
 
 ## Introduction
 
-**In addition, please be careful, as the case will be scratched if it hits or rubs a hard thing after assembly.**
+**Note: please be careful, as the case will be scratched if it hits or rubs a hard thing after assembly.**
 
 This PCB is reversible. We will mount parts **on each side.**
 
@@ -71,12 +73,13 @@ Solder the diode as shown in the following figure.
 
 ![SMD Diode orientation](img/smd-diode-direction-1.png)
 
-Apply preliminary solder (melt a small amount on the substrate) on one pad of the PCB diode.
+Apply preliminary solder (melt a small amount on the substrate/"tin the pad") on one pad of the PCB diode.
 
 ![](img/smd-diode-solder-1.jpg)
 *PCB back side (left half)*
 
-Then use tweezers to solder one side of the diode, using the pre-soldering to secure the diode.
+Then use tweezers to slide the diode into position, whilst you heat the pre-soldered pad. 
+Remove the soldering iron and allow to cool, whilst still holding the diode.
 
 Then solder the remaining side.  
 When all diodes have been soldered, check for missing spots.
@@ -84,7 +87,7 @@ When all diodes have been soldered, check for missing spots.
 ![](img/smd-diode-solder-2.jpg)
 *PCB back side (left half)*
 
-You can use a multimeter on the front side of the board to ensure that the solder connections are good and that the orientation of the diodes is correct.
+You can use a multimeter in "diode mode", on the front side of the board to ensure that the solder connections are good and that the orientation of the diodes is correct.
 
 ![](img/smd-diode-solder-3.jpg)
 *All diodes soldered on back side (left half)*
@@ -103,13 +106,13 @@ Place the component, and hold it in place with tweezers.
 
 ![SK6812 Mini-E soldering](img/sk6812-mini-e-led-2.jpg)
 
-Then solder the other pad's.
+Then solder the other pads.
 
 ![SK6812 Mini-E soldering](img/sk6812-mini-e-led-3.jpg)
 
-**It is necessary to solder all LEDs, even if you use the rotary encoder.**
+**It is necessary to solder all LEDs, even if you use the rotary encoder.**-- query this statement- should it be "even if you only want the per-key lighting"?
 
-For the LEDs it's important to keep the heating as short as possible. Try to not touch the LED itself with the iron but rather only the solder that's supposed to connect to the metal pin. Use flux.  
+For the LEDs it's important to keep the heating as short as possible. Try to not touch the plastic of the LED itself with the iron but only the the metal legs. Use flux if you are having difficulty. 
 The LEDs are connected in series. If a LED is broken or has bad solder connections, the following LEDs will either not light up at all or will light up in a different color than the default (red).
 Doublecheck the last LED that lights up properly and the first that doesn't.  
 On the LEDs with legs it's easily possible to get a loose connection. 
@@ -121,7 +124,7 @@ Attach the parts and fix them temporarily with masking tape. Turn over the board
 ![TRRS jack and reset button](img/trrs-jack-reset-button-1.jpg)
 *PCB front side (left half)*
 
-**be careful** don't be careless doing this part. TRRS jacks are parts you can indeed mess up. I promise. 
+**Be careful** Double check your part orientation before you commit to soldering. A mistake here can mean painful desoldering experiences.
 
 ## Attach the OLED socket
 On the **front side** of the board, apply enough solder to bridge the four jumper terminals in the Pro Micro section.
@@ -129,7 +132,7 @@ On the **front side** of the board, apply enough solder to bridge the four jumpe
 ![](img/oled-jumper-pins-1.jpg)
 *PCB front side (left half)*
 
-Attach the connector for the OLED on front side (opposite side of diodes). Be careful to avoid adding a lot of solder, as it is easy for solder to flow into the connector.
+Attach the connector for the OLED on front side (opposite side of diodes). Be careful to avoid adding a lot of solder, as it is easy for solder to flow into the connector. Make sure it is straight and at a right-angle to the PCB.
 
 ## Install Pro Micro (with sockets)
 
@@ -137,13 +140,13 @@ Attach the connector for the OLED on front side (opposite side of diodes). Be ca
 
 Open [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest) and connect your Pro Micro/Puchi-C to the computer.  
 If your Pro Micro/Puchi-C is complete new (without a firmware on it), a message *"***Atmel DFU device connected: ..."* should appear.  
-If the message does not appear, press the reset button on the Puchi-C, or short RST & GND pins on the Pro Micro to bringt it into the DFU mode.
-If the message appears, the device should work properly.
+If the message does not appear, press the reset button on the Puchi-C, or short RST & GND pins on the Pro Micro to bring it into the DFU mode.
+If the message appears, the device should be working correctly.
 
 ![](img/Puchi-C-working-test-1.jpg)
 
-The pin header enclosed in the bag of Pro Micro can be used, but i highly recommend to use the Mill-Max socket headers, or Spring-loaded pin headers.
-With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros will break at some point)
+The pin header enclosed in the bag of Pro Micro can be used, but I highly recommend using the Mill-Max socket headers, or Spring-loaded pin headers.
+With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros- the USB port will break at some point!)
 
 ![Standard header/ Mill-Max socket header](img/mill-max-12-single-row-socket-1.jpg)
 
@@ -152,9 +155,9 @@ Note the **outlined sets of holes in PCB,** and insert the Standard header/Mill-
 ![Pro Micro_PCB](img/pro-micro-solder-location-1.jpg)
 *PCB front side (left half)*
 
-Solder the Standard header/Mill-Max sockets from the **back side** and pay attention not creating solder bridges.
+Solder the Standard header/Mill-Max sockets from the **back side** and pay attention not creating solder bridges between the different sets of holes.
 
-Insert the Mill-Max pins (you can also use legs from through hole diodes/resistor) with a plier into the sockets.
+Insert the Mill-Max pins (you can also use legs from through hole diodes/resistor) with pliers into the sockets.
 
 ![](img/mill-max-12-single-row-socket-5.jpg)
 
@@ -168,7 +171,7 @@ Place the Pro Micro/Puchi-C **(USB socket facing down)**.
 ![](img/mill-max-12-single-row-socket-3.jpg)
 *Example image*
 
-Solder the pins. Shorten the pins with diagonal pliers (not necessary if you use the Mill-Max pins).
+Solder the pins. Shorten the pins with side cutters/flush cutters (not necessary if you use the Mill-Max pins).
 
 ![](img/mill-max-12-single-row-socket-4.jpg)
 *Example image*
@@ -177,7 +180,7 @@ For other ways to mount your Pro Micros, look at [the crkbd build guide.](https:
 
 ## Install the OLED (SD1306) on the socket
 
-Remove the black plastic thingy that's part of the header installed in the OLED. Then you'll be able to shorten it's legs with your pliers and put them into the socket, resulting into a way more low profile OLED.  
+Remove the black plastic spacer that's part of the header installed in the OLED. Then you'll be able to shorten it's legs with your pliers and put them into the socket, resulting into a way more low profile OLED. You can wiggle it off with pliers carefully.
 
 ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-1.jpg) ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-2.jpg) 
 
@@ -267,7 +270,8 @@ Soldering the rotary encoder is as simple as any other component. Put the encode
 
 > **Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. (you can also just clip them off)
 
- > **For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will serve, inter alia, as a switch in the matrix.
+ > **For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will behave as a normal keyswitch in the matrix.
+ 
 The lower three pins do the actual rotary-encoding part
 
 
@@ -319,7 +323,7 @@ The [default keymap](https://github.com/qmk/qmk_firmware/blob/master/keyboards/k
 If everything works: You have built your Kimiko. Have fun!
 [If something doesn't work](#when-in-trouble)
 
-## When in trouble
+## Troubleshooting
 ### Q. One or more rows/columns of key switches do not respond
 A. The Pro Micro board may not be soldered and attached firmly. Check again, and re-solder and reinstall if necessary.
 
@@ -390,3 +394,5 @@ respectively.
 If you're using DFU bootloader (in case of the Puchi-C), replace the `avrdude` with `dfu`
 
 From then on, your keyboard will know, which side they are, no matter which side you plug in. You won't have to use the flags again when flashing an update of your keymap.
+
+If you have any problems that aren't answered here, consider joining our discord server at: (https://discord.gg/5Vfa9azMUr)

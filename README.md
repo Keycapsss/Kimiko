@@ -20,7 +20,7 @@ and has the the following additional features.
 Part name | Quantity | Remarks | Photo |
 | ------- | -------- | ------- | ----- |
 | Lily58L PCB | 2 pcs ||
-| Lily58L case | 1 set | 2 solid panels, 2 with holes for switches |
+| Lily58L case | 1 set | 2 solid panels, 2 with holes for switches (plates) |
 | [Pro Micro](https://keycapsss.com/keyboard-parts/parts/79/arduino-pro-micro-atmega32u4-controller) or [Elite-C](https://keycapsss.com/keyboard-parts/parts/99/elite-c-pro-micro-replacement-with-usb-c-and-atmega32u4) | 2 pcs (a mix is possible) | Optionally, use [Mill-Max Single Row Socket Headers](https://keycapsss.com/keyboard-parts/parts/100/single-row-socket-headers-pins-mill-max-series-315), to make it hot-swappable. ||
 | Key switch (MX) | 58 pcs |  ||
 | [Kailh switch socket](https://keycapsss.com/keyboard-parts/parts/49/kailh-hot-swap-pcb-sockets-10-pcs) | 58 pcs |  ||
@@ -37,14 +37,13 @@ Part name | Quantity | Remarks | Photo |
 Part name | Quantity | Remarks | Photo |
 | ------- | -------- | ------- | ----- |
 | [OLED module](https://keycapsss.com/keyboard-parts/parts/80/ssd1306-oled-lcd-display-0.91-inch-128x32-i2c-white) | 2 pcs | It is possible to use only one display ||
-| SK6812 Mini | 12 pcs | RGB led's for underglow ||
-| SK6812 Mini-E | 58 pcs |RGB led's for keycap backlight **(underglow led's must be soldered, because they are connected in series)** ||
+| SK6812 Mini | 12 pcs | RGB LEDs for underglow ||
+| SK6812 Mini-E | 58 pcs |RGB LEDs for keycap backlight **(underglow LEDs must be soldered, because they are connected in series)** ||
 
 ## Firmware:
 Clone/download the QMK firmware and execute the following in the [qmk_firmware](https://github.com/qmk/qmk_firmware) directory to write the default Lily58L keymap
 
-    make lily58/light:lily58l:avrdude
-
+    make lily58/light:lily58l:avrdude (for pro micro) 
 
 When **`Detecting USB port, reset your controller now...`** is displayed, press the reset button on the keyboard to start writing.
 Each half of the keyboard must be programmed separately using this approach.
