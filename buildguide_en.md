@@ -309,7 +309,7 @@ The [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases) can be used to wr
 Clone/download the QMK firmware and execute the following in the [qmk_firmware](https://github.com/qmk/qmk_firmware) directory to write the default Lily58L keymap
 
 ```bash
-make make keycapsss/kimiko:default:avrdude
+make keycapsss/kimiko:default:avrdude
 ```
 
 When **`Detecting USB port, reset your controller now...`** is displayed, press the reset button on the keyboard to start writing.
@@ -398,13 +398,13 @@ In order to do so, first put `#define EE_HANDS` into your config.h.
 Then flash the keymap with
 
 ```bash
-make make keycapsss/kimiko:(yourkeymap):avrdude-split-left 
+make keycapsss/kimiko:(yourkeymap):avrdude-split-left 
 ```
 
 and
 
 ```bash
-make make keycapsss/kimiko:(yourkeymap):avrdude-split-right
+make keycapsss/kimiko:(yourkeymap):avrdude-split-right
 ```
 
 respectively.
