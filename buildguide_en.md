@@ -137,7 +137,7 @@ Attach the connector for the OLED on front side (opposite side of diodes). Be ca
 
 ## Install Pro Micro (with sockets)
 
-**Before installing the Pro Micro, no matter which (can also happen on the Puchi-C), check whether they are working by plugging them in and [flashing the default keymap](#flash-keymap-on-pro-micro/puchi-c).**
+**Before installing the Pro Micro, no matter which (can also happen on the Puchi-C), check whether they are working by plugging them in and [flashing the default keymap](#flash-keymap-on-pro-micropuchi-c).**
 
 Open [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest) and connect your Pro Micro/Puchi-C to the computer.  
 If your Pro Micro/Puchi-C is complete new (without a firmware on it), a message *"***Atmel DFU device connected: ..."* should appear.  
