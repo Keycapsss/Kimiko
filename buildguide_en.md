@@ -144,7 +144,7 @@ If your Pro Micro/Puchi-C is complete new (without a firmware on it), a message 
 If the message does not appear, press the reset button on the Puchi-C, or short RST & GND pins on the Pro Micro to bring it into the DFU mode.
 If the message appears, the device should be working correctly.
 
-![QMK toolbox](img/Puchi-C-working-test-1.jpg)
+![QMK toolbox](img/puchi-c-working-test-1.jpg)
 
 The pin header enclosed in the bag of Pro Micro can be used, but I highly recommend using the Mill-Max socket headers, or Spring-loaded pin headers.
 With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros- the USB port will break at some point!)
