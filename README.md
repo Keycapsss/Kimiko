@@ -10,6 +10,8 @@
 
 **[Build-Guide](buildguide_en.md)**
 
+**[Keymap-Guide](keymap.md)**
+
 **Hardware available at [keycapsss.com](https://keycapsss.com)**
 
 ![](https://keycapsss.com/media/image/g0/9e/1f/kimiko-split-keyboard-1vUUb4KAeC3ojx_1280x1280.jpg)
