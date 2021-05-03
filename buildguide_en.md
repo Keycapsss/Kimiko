@@ -3,10 +3,21 @@
 # Table of Contents  
 [Required tools and parts](#Required-tools)  
 [Introduction](#Introduction)  
- 
-<a name="headers"/>
-
-
+[Attach the diodes](#attach-the-diodes) 
+[Solder the LEDs (optional)](#solder-the-leds-for-keycap-back-optionally) 
+[Solder the TRRS jack and reset switch](#soldering-the-trrs-jack-and-reset-switch) 
+[Attach the OLED socket](#attach-the-oled-socket)  
+[Install Pro Micro](#install-pro-micro-with-sockets) 
+[Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
+[Checkpoint](#you-have-reached-a-checkpoint)
+[Solder the sockets](#solder-the-sockets)
+[Case assembly](#case-assembly)
+[Rotary encoder](#prepare-the-rotary-encoder)
+[Attach the key switches](#attach-the-key-switch)
+[Pro Micro protective acrylic installation](#pro-micro-protective-acrylic-installation)
+[Flash keymap on Pro Micro/Puchi-C](#flash-keymap-on-pro-micropuchi-c)
+[Default keymap](#default-keymap)
+[Troubleshooting](#troubleshooting)
 
 ## Required tools
 
@@ -118,7 +129,7 @@ Then solder the other pads.
 
 ![SK6812 Mini-E soldering](img/sk6812-mini-e-led-3.jpg)
 
-**It is necessary to solder all LEDs, even if you use the rotary encoder.**-- query this statement- should it be "even if you only want the per-key lighting"?
+**It is necessary to solder all LEDs, even if you use the rotary encoder.**
 
 For the LEDs it's important to keep the heating as short as possible. Try to not touch the plastic of the LED itself with the iron but only the the metal legs. Use flux if you are having difficulty.
 The LEDs are connected in series. If a LED is broken or has bad solder connections, the following LEDs will either not light up at all or will light up in a different color than the default (red).
@@ -194,11 +205,8 @@ Remove the black plastic spacer that's part of the header installed in the OLED.
 
 ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-1.jpg) ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-2.jpg)
 
-## Solder the rotary encoder
 
-I highly recommend to solder the rotary encoder, [**after you assembled the top plate**](#prepare-the-rotary-encoder). If it sits loose on the mid pcb, the clearance helps that the encoder fits in the top plate hole.
-
-### You have reached a checkpoint
+## You have reached a checkpoint
 
 Plug your keyboard (**do not plug-in or remove the TRRS cable, while a Pro Micro is connected via USB**), look what happens, solve problems, be happy if there are none (if you followed all the steps your pro micros should have [firmware](#flash-keymap-on-pro-micro) at this point).  
 By now you can also checked whether all switches will be able to work. In order to do so, open the [QMK Test Site](https://config.qmk.fm/#/test), short the pads on which the kailh sockets will be installed (next step) with tweezers.
@@ -233,6 +241,7 @@ It's easy to insert a screw from the back of the board and attach the spacer fro
 Attach the **7mm spacer** to the top plate.
 
 ![Top plate 7mm spacer](img/case-top-plate-spacer-1.jpg)
+
 
 ### Prepare the rotary encoder
 
