@@ -274,9 +274,10 @@ It's easy to insert a screw from the back of the board and attach the spacer fro
 
 ![Spacer for oled guard plate](img/case-spacer-guard-plate-1.jpg)
 
-Attach the **7mm spacer** to the top plate.
+Attach the **7mm spacer** to the top plate. If your kit comes with washers attached those to the spacers (They will hold the top plate slightly off the PCB)
 
 ![Top plate 7mm spacer](img/case-top-plate-spacer-1.jpg)
+
 
 
 ### Prepare the rotary encoder
