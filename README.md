@@ -10,7 +10,7 @@
 
 **[Build-Guide](buildguide_en.md)**
 
-**[Keymap-Guide](keymap.md)**
+**[Keymap-Guide](Keymap.md)**
 
 **Hardware available at [keycapsss.com](https://keycapsss.com)**
 
