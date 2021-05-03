@@ -242,7 +242,10 @@ Remove the black plastic spacer that's part of the header installed in the OLED.
 ## You have reached a checkpoint
 
 Plug your keyboard (**do not plug-in or remove the TRRS cable, while a Pro Micro is connected via USB**), look what happens, solve problems, be happy if there are none (if you followed all the steps your pro micros should have [firmware](#flash-keymap-on-pro-micro) at this point).  
+
 By now you can also checked whether all switches will be able to work. In order to do so, open the [QMK Test Site](https://config.qmk.fm/#/test), short the pads on which the kailh sockets will be installed (next step) with tweezers.
+
+See [Troubleshooting](#troubleshooting) if anything is not working
 
 ![Tweezers test switch](img/kailh-socket-pad-test-1.jpg)
 
