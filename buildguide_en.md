@@ -1,9 +1,9 @@
 # Kimiko Build Guide
 
 # Table of Contents  
-[Required tools](## Required tools)  
-[Emphasis](#emphasis)  
-...snip...    
+[Required tools and parts](#Required-tools)  
+[Introduction](#Introduction)  
+ 
 <a name="headers"/>
 
 
