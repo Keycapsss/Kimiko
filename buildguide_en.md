@@ -7,7 +7,7 @@
 - [Solder the LEDs (optional)](#solder-the-leds-for-keycap-back-optionally) 
 - [Solder the TRRS jack and reset switch](#soldering-the-trrs-jack-and-reset-switch) 
 - [Attach the OLED socket](#attach-the-oled-socket)  
-- [Install Pro Micro](#install-pro-micro-with-sockets) 
+- [Install Pro Micro/Puchi](#install-pro-micro) 
 - [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
 - [Checkpoint](#you-have-reached-a-checkpoint)
 - [Solder the sockets](#solder-the-sockets)
@@ -157,6 +157,7 @@ Attach the connector for the OLED on front side (opposite side of diodes). Be ca
 
 ## Install Pro Micro (with sockets)
 
+### Check Pro Micro by flashing
 **Before installing the Pro Micro, no matter which (can also happen on the Puchi-C), check whether they are working by plugging them in and [flashing the default keymap](#flash-keymap-on-pro-micropuchi-c).**
 
 Open [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest) and connect your Pro Micro/Puchi-C to the computer.  
@@ -166,36 +167,57 @@ If the message appears, the device should be working correctly.
 
 ![QMK toolbox](img/puchi-c-working-test-1.jpg)
 
-The pin header enclosed in the bag of Pro Micro can be used, but I highly recommend using the Mill-Max socket headers, or Spring-loaded pin headers.
-With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros- the USB port will break at some point!)
+### Install onto PCB
+
+You have 3 options:
+- Use the pin headers enclosed in the bag of Pro Micro
+- Use Mill-Max sockets and Mill-Max headers
+- Use Mill-Max sockets with diode legs
+
+### Using Pin header enclosed
+The pin header enclosed in the bag of Pro Micro can be used. But I highly recommend using the Mill-Max socket headers, or Spring-loaded pin headers. With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros- the USB port will break at some point!)
 
 ![Standard header/ Mill-Max socket header](img/mill-max-12-single-row-socket-1.jpg)
+*Standard headers vs Mill-Max sockets. Note the standard header pins will NOT fit into the Mill-Max sockets. You have to get Mill-Max headers or use diode legs*
 
-Note the **outlined sets of holes in PCB,** and insert the Standard header/Mill-Max sockets into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**
+1. Note the **outlined sets of holes in PCB,** and insert the Standard header into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**. See image in Mill-Max section for a reference
+2. Solder the Standard header from the **back side** and pay attention not creating solder bridges between the different sets of holes.
+3. Place the Pro Micro/Puchi-C on top of the headers on the **Front side**. **(USB socket facing down)**.
+![Mill-Max sockets](img/mill-max-12-single-row-socket-6.jpg)
+4. Solder the Pro-Micro in place
 
+Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
+
+
+### Use Mill-Max sockets and Mill-Max headers
+
+1. Note the **outlined sets of holes in PCB,** and insert the Standard header/Mill-Max sockets into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**
 ![Pro Micro_PCB](img/pro-micro-solder-location-1.jpg)
 *PCB front side (left half)*
-
-Solder the Standard header/Mill-Max sockets from the **back side** and pay attention not creating solder bridges between the different sets of holes.
-
-Insert the Mill-Max pins (you can also use legs from through hole diodes/resistor) with pliers into the sockets.
-
+2. Solder the Mill-Max sockets from the **back side** and pay attention not creating solder bridges between the different sets of holes.
+3. Insert the Mill-Max pins with pliers into the sockets.
 ![Mill-Max sockets](img/mill-max-12-single-row-socket-5.jpg)
+*Example image with Mill-Max sockets*
+4. Place the Pro Micro/Puchi-C on top of the headers on the **Front side**. **(USB socket facing down)**.
+![Punchi-C Placement](img/mill-max-12-single-row-socket-6.jpg)
+*Puchi-C Placement*
 
+
+### Use Mill-Max sockets with diode legs
+1. Note the **outlined sets of holes in PCB,** and insert the Standard header/Mill-Max sockets into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**
+![Pro Micro_PCB](img/pro-micro-solder-location-1.jpg)
+*PCB front side (left half)*
+2. Solder the Mill-Max sockets from the **back side** and pay attention not creating solder bridges between the different sets of holes.
+3. Optional but highly recommended: Cover the sockets with heat resistant tape (scotch tape or electrical tape). This will prevent the solder seeping into the sockets which will make it practically impossible to remove the pro-micro
+4. Insert the diodes legs with pliers into the sockets. You should hear/feel 2 'clicks' Once when it puches through the tape and the second when it engages into place on the Max-Mill socket
 ![Mill-Max sockets](img/mill-max-12-single-row-socket-2.jpg)
 *Example image with diode legs*
-
-Place the Pro Micro/Puchi-C **(USB socket facing down)**.
-
-![Mill-Max sockets](img/mill-max-12-single-row-socket-6.jpg)
-
-![Mill-Max sockets](img/mill-max-12-single-row-socket-3.jpg)
-*Example image*
-
-Solder the pins. Shorten the pins with side cutters/flush cutters (not necessary if you use the Mill-Max pins).
-
-![Mill-Max sockets](img/mill-max-12-single-row-socket-4.jpg)
-*Example image*
+5. Place the Pro Micro/Puchi-C **(USB socket facing down)**. See step 5 on 
+![Diode legs 1](img/mill-max-12-single-row-socket-3.jpg)
+*Pro Micro placement with diode legs*
+6. Solder the pins. Shorten the pins with side cutters/flush cutters (not necessary if you use the Mill-Max pins).
+![Diode legs 2](img/mill-max-12-single-row-socket-4.jpg)
+*Time to snip*
 
 For other ways to mount your Pro Micros, look at [the crkbd build guide.](https://nicedoc.io/foostan/crkbd/blob/master/corne-classic/doc/buildguide_en.md#using-pin-sockets)
 
