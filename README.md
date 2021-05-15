@@ -1,12 +1,13 @@
 # Kimiko
+
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/firstcontributions/first-contributions)
 [![Discord](https://img.shields.io/discord/548530462419582996?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/frjFXZB "Redirect to Keycapsss Discord")
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/) 
-
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 - Aggressive staggered pinky rows
 - Support for one rotary encoder per side (two possible positions)
 - Per key RGB led with SK6812 Mini-E led (with legs, easy to solder)
+- Support for MX switches (Hotswap sockets)
 
 **[Build-Guide](buildguide_en.md)**
 
@@ -14,8 +15,7 @@
 
 ![](https://keycapsss.com/media/image/g0/9e/1f/kimiko-split-keyboard-1vUUb4KAeC3ojx_1280x1280.jpg)
 
-
-# Parts
+## Parts
 
 Part name | Quantity | Remarks | Photo |
 | ------- | -------- | ------- | ----- |
@@ -31,15 +31,19 @@ Part name | Quantity | Remarks | Photo |
 | Key caps | 58-60 pcs | 1.5U caps, can also be 1U ||
 | Micro USB or USB-C cable | 1 pcs | Dependent what you use on the master half. ||
 
-
-## Optionally:
+## Optionally
 
 Part name | Quantity | Remarks | Photo |
 | ------- | -------- | ------- | ----- |
 | [OLED module](https://keycapsss.com/keyboard-parts/parts/80/ssd1306-oled-lcd-display-0.91-inch-128x32-i2c-white) | 2 pcs | It is possible to use only one display ||
 | SK6812 Mini-E | 60 pcs |RGB LEDs for keycap backlight **(underglow LEDs must be soldered, because they are connected in series)** ||
 
-## Firmware:
+## Case files
+
+Drawings (SVG, DXF) for the case are located in the [plates folder](plates/).
+
+## Firmware
+
 Clone/download the QMK firmware and execute the following in the [qmk_firmware](https://github.com/qmk/qmk_firmware) directory to write the default Lily58L keymap
 
     make keycapsss/kimiko:default:avrdude (for pro micro) 
