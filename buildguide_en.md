@@ -226,7 +226,7 @@ Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
 ![Diode legs 2](img/mill-max-12-single-row-socket-4.jpg)
 *Time to snip*
 7. You should be able to slowly wedge off the pro micro from the Max-Mill sockets using tweezers and a bit of levering from the top and bottom of the pro micro. Take off the tape.
-![Pro Micro Removed](img/Wedging_pro_micro.jpg)
+![Pro Micro Removed](img/pro_micro-wedgin-1.jpg)
 *Pro Micro levered off the pins. Now time to remove tape*
 
 
@@ -278,7 +278,8 @@ Attach the **7mm spacer** to the top plate. If your kit comes with washers attac
 
 ![Top plate 7mm spacer](img/case-top-plate-spacer-1.jpg)
 
-
+![Top plate washer](img/case-top-plate-washer-1.jpg)
+*Spacer washer for acrylic case (not necessary for FR4 plate case).*
 
 ### Prepare the rotary encoder
 
