@@ -26,7 +26,7 @@ If you get an error, please double-check the board, connection and command.
 
 **Pro Micro and Puchi-C/Elite-C have different bootloader.** Edit the `rule.mk` file in your keymap folder and add the following line to it.
 
-#### Puchi-C or Elite-C_
+#### Puchi-C or Elite-C
 
 ```c
 BOOTLOADER = atmel-dfu
