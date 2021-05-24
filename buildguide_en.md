@@ -218,7 +218,7 @@ Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
 *PCB front side (left half)*
 2. Solder the Mill-Max sockets from the **back side** and pay attention to not creating solder bridges between the different sets of holes.
 3. Optional but highly recommended: Cover the sockets with heat resistant tape (scotch tape or electrical tape). This will prevent the solder seeping into the sockets which will make it practically impossible to remove the pro-microsocket
-![Pro Micro with tape](img/Pro_micro_tape_diode_legs.jpg)
+![Pro Micro with tape](img/pro-micro-tape-diode-legs-1.jpg)
 *Example with tape*
 4. Insert the diodes legs with pliers or tweezers into the sockets. You should hear/feel 2 'clicks' Once when it puches through the tape and the second when it engages into place on the Max-Mill socket. Do not use your hands as the diode legs can be sharp
 ![Mill-Max sockets](img/mill-max-12-single-row-socket-2.jpg)
@@ -230,7 +230,7 @@ Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
 ![Diode legs 2](img/mill-max-12-single-row-socket-4.jpg)
 *Time to snip*
 7. You should be able to slowly wedge off the pro micro from the Max-Mill sockets using tweezers and a bit of levering from the top and bottom of the pro micro. Take off the tape.
-![Pro Micro Removed](img/pro_micro-wedgin-1.jpg)
+![Pro Micro Removed](img/pro-micro-wedgin-1.jpg)
 *Pro Micro levered off the pins. Now time to remove tape*
 
 
