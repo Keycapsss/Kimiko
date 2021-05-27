@@ -4,6 +4,25 @@
 [![Discord](https://img.shields.io/discord/548530462419582996?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/frjFXZB "Redirect to Keycapsss Discord")
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/) 
 
+# Table of Contents  
+- [Required tools and parts](#Required-tools)  
+- [Introduction](#Introduction)  
+- [Attach the diodes](#attach-the-diodes) 
+- [Solder the LEDs (optional)](#solder-the-leds-for-keycap-back-optionally) 
+- [Solder the TRRS jack and reset switch](#soldering-the-trrs-jack-and-reset-switch) 
+- [Attach the OLED socket](#attach-the-oled-socket)  
+- [Install Pro Micro/Puchi](#install-pro-micro-with-sockets) 
+- [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
+- [Checkpoint](#you-have-reached-a-checkpoint)
+- [Solder the sockets](#solder-the-sockets)
+- [Case assembly](#case-assembly)
+- [Rotary encoder](#prepare-the-rotary-encoder)
+- [Attach the key switches](#attach-the-key-switch)
+- [Pro Micro protective acrylic installation](#pro-micro-protective-acrylic-installation)
+- [Flash keymap on Pro Micro/Puchi-C](#flash-keymap-on-pro-micropuchi-c)
+- [Customize the default keymap](#customize-the-default-keymap)
+- [Troubleshooting](#troubleshooting)
+
 ## Required tools
 
 ![Required tools for soldering](img/required-tools-1.jpg)
@@ -55,6 +74,7 @@ Part name | Quantity | Remarks | Photo |
 | [Rotary encoder](https://keycapsss.com/keyboard-parts/parts/59/rotary-encoder-with-switch) |0-2 pcs| One per side are supported. |
 | [OLED 0.91 module](https://keycapsss.com/keyboard-parts/parts/80/ssd1306-oLED-lcd-display-0.91-inch-128x32-i2c-white) | 0-2 pcs | It is possible to use only one display. ||
 | [SK6812 Mini-E LEDs](https://keycapsss.com/keyboard-parts/parts/114/sk6812-mini-e-rgb-smd-LED) | 60 pcs |RGB LEDs for the keycap backlight. **Also the LEDs under the encoder must be soldered, because they are wired in series.** ||
+| [Mill-Max Single Row Socket Headers](https://keycapsss.com/keyboard-parts/parts/100/single-row-socket-headers-pins-mill-max-series-315), or [Spring-loaded pin headers](https://keycapsss.com/keyboard-parts/parts/91/spring-loaded-pin-headers-12-pin-2pcs-conthrough), | 4 x 12 row headers | To make pro micro Hot-swappable. Highly recommended to get the header pins too (You can use diode legs if you don't get the header pins)|
 
 ## Introduction
 
@@ -113,7 +133,7 @@ Then solder the other pads.
 
 ![SK6812 Mini-E soldering](img/sk6812-mini-e-led-3.jpg)
 
-**It is necessary to solder all LEDs, even if you use the rotary encoder.**-- query this statement- should it be "even if you only want the per-key lighting"?
+**It is necessary to solder all LEDs, even if you use the rotary encoder.**
 
 For the LEDs it's important to keep the heating as short as possible. Try to not touch the plastic of the LED itself with the iron but only the the metal legs. Use flux if you are having difficulty.
 The LEDs are connected in series. If a LED is broken or has bad solder connections, the following LEDs will either not light up at all or will light up in a different color than the default (red).
@@ -141,47 +161,80 @@ Attach the connector for the OLED on front side (opposite side of diodes). Be ca
 
 ## Install Pro Micro (with sockets)
 
+### Check Pro Micro by flashing
 **Before installing the Pro Micro, no matter which (can also happen on the Puchi-C), check whether they are working by plugging them in and [flashing the default keymap](#flash-keymap-on-pro-micropuchi-c).**
 
 Open [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest) and connect your Pro Micro/Puchi-C to the computer.  
 If your Pro Micro/Puchi-C is complete new (without a firmware on it), a message *"***Atmel DFU device connected: ..."* should appear.  
-If the message does not appear, press the reset button on the Puchi-C, or short RST & GND pins on the Pro Micro to bring it into the DFU mode.
+
+If the message does not appear, press the reset button on the Puchi-C, or short RST & GND pins on the Pro Micro to bring it into the DFU mode. (For first timers you can short using a wire and touching an end each to RST & GND pins while the pro micro is plugged in)
 If the message appears, the device should be working correctly.
 
 ![QMK toolbox](img/puchi-c-working-test-1.jpg)
 
-The pin header enclosed in the bag of Pro Micro can be used, but I highly recommend using the Mill-Max socket headers, or Spring-loaded pin headers.
-With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros- the USB port will break at some point!)
+### Install onto PCB
 
-![Standard header/ Mill-Max socket header](img/mill-max-12-single-row-socket-1.jpg)
-
-Note the **outlined sets of holes in PCB,** and insert the Standard header/Mill-Max sockets into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**
-
-![Pro Micro_PCB](img/pro-micro-solder-location-1.jpg)
-*PCB front side (left half)*
-
-Solder the Standard header/Mill-Max sockets from the **back side** and pay attention not creating solder bridges between the different sets of holes.
-
-Insert the Mill-Max pins (you can also use legs from through hole diodes/resistor) with pliers into the sockets.
-
-![Mill-Max sockets](img/mill-max-12-single-row-socket-5.jpg)
-
-![Mill-Max sockets](img/mill-max-12-single-row-socket-2.jpg)
-*Example image with diode legs*
-
-Place the Pro Micro/Puchi-C **(USB socket facing down)**.
-
-![Mill-Max sockets](img/mill-max-12-single-row-socket-6.jpg)
-
-![Mill-Max sockets](img/mill-max-12-single-row-socket-3.jpg)
-*Example image*
-
-Solder the pins. Shorten the pins with side cutters/flush cutters (not necessary if you use the Mill-Max pins).
-
-![Mill-Max sockets](img/mill-max-12-single-row-socket-4.jpg)
-*Example image*
+You have 3 options:
+- Use the pin headers enclosed in the bag of Pro Micro
+- Use Mill-Max sockets and Mill-Max headers
+- Use Mill-Max sockets with diode legs
 
 For other ways to mount your Pro Micros, look at [the crkbd build guide.](https://nicedoc.io/foostan/crkbd/blob/master/corne-classic/doc/buildguide_en.md#using-pin-sockets)
+
+### Using Pin header enclosed
+The pin header enclosed in the bag of Pro Micro can be used. But I highly recommend using the Mill-Max socket headers, or Spring-loaded pin headers. With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros- the USB port will break at some point!)
+
+![Standard header/ Mill-Max socket header](img/mill-max-12-single-row-socket-1.jpg)
+*Standard headers vs Mill-Max sockets. Note the standard header pins will NOT fit into the Mill-Max sockets. You have to get Mill-Max headers or use diode legs*
+
+1. Note the **outlined sets of holes in PCB,** and insert the Standard header into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.** See the image in step 1 of [Mill-Max section](#use-mill-max-sockets-and-mill-max-headers) for a reference.
+2. Solder the Standard header from the **back side** and pay attention to not creating solder bridges between the different sets of holes.
+3. Place the Pro Micro/Puchi-C on top of the headers on the **Front side**. **(USB socket facing down)**.
+![Mill-Max sockets](img/mill-max-12-single-row-socket-6.jpg)
+4. Solder the Pro-Micro in place
+
+Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
+
+
+### Use Mill-Max sockets and Mill-Max headers
+
+1. Note the **outlined sets of holes in PCB,** and insert the Mill-Max sockets into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**
+![Pro Micro_PCB](img/pro-micro-solder-location-1.jpg)
+*PCB front side (left half)*
+2. Solder the Mill-Max sockets from the **back side** and pay attention to not creating solder bridges between the different sets of holes.
+3. Insert the Mill-Max pins with pliers into the sockets.
+![Mill-Max sockets](img/mill-max-12-single-row-socket-5.jpg)
+*Example image with Mill-Max sockets*
+4. Place the Pro Micro/Puchi-C on top of the headers on the **Front side**. **(USB socket facing down)**.
+![Punchi-C Placement](img/mill-max-12-single-row-socket-6.jpg)
+*Puchi-C Placement*
+5. Solder the pins.
+
+Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
+
+### Use Mill-Max sockets with diode legs
+1. Note the **outlined sets of holes in PCB,** and insert the Mill-Max sockets into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**
+![Pro Micro_PCB](img/pro-micro-solder-location-1.jpg)
+*PCB front side (left half)*
+2. Solder the Mill-Max sockets from the **back side** and pay attention to not creating solder bridges between the different sets of holes.
+3. Optional but highly recommended: Cover the sockets with heat resistant tape (scotch tape or electrical tape). This will prevent the solder seeping into the sockets which will make it practically impossible to remove the pro-microsocket
+![Pro Micro with tape](img/pro-micro-tape-diode-legs-1.jpg)
+*Example with tape*
+4. Insert the diodes legs with pliers or tweezers into the sockets. You should hear/feel 2 'clicks' Once when it puches through the tape and the second when it engages into place on the Max-Mill socket. Do not use your hands as the diode legs can be sharp
+![Mill-Max sockets](img/mill-max-12-single-row-socket-2.jpg)
+*Example image with diode legs*
+5. Place the Pro Micro/Puchi-C **(USB socket facing down)**.
+![Diode legs 1](img/mill-max-12-single-row-socket-3.jpg)
+*Pro Micro placement with diode legs*
+6. Solder the pins. Shorten the pins with side cutters/flush cutters 
+![Diode legs 2](img/mill-max-12-single-row-socket-4.jpg)
+*Time to snip*
+7. You should be able to slowly wedge off the pro micro from the Max-Mill sockets using tweezers and a bit of levering from the top and bottom of the pro micro. Take off the tape.
+![Pro Micro Removed](img/pro-micro-wedgin-1.jpg)
+*Pro Micro levered off the pins. Now time to remove tape*
+
+
+
 
 ## Install the OLED (SD1306) on the socket
 
@@ -189,14 +242,14 @@ Remove the black plastic spacer that's part of the header installed in the OLED.
 
 ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-1.jpg) ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-2.jpg)
 
-## Solder the rotary encoder
 
-I highly recommend to solder the rotary encoder, [**after you assembled the top plate**](#prepare-the-rotary-encoder). If it sits loose on the mid pcb, the clearance helps that the encoder fits in the top plate hole.
-
-### You have reached a checkpoint
+## You have reached a checkpoint
 
 Plug your keyboard (**do not plug-in or remove the TRRS cable, while a Pro Micro is connected via USB**), look what happens, solve problems, be happy if there are none (if you followed all the steps your pro micros should have [firmware](#flash-keymap-on-pro-micro) at this point).  
+
 By now you can also checked whether all switches will be able to work. In order to do so, open the [QMK Test Site](https://config.qmk.fm/#/test), short the pads on which the kailh sockets will be installed (next step) with tweezers.
+
+See [Troubleshooting](#troubleshooting) if anything is not working
 
 ![Tweezers test switch](img/kailh-socket-pad-test-1.jpg)
 
@@ -225,9 +278,12 @@ It's easy to insert a screw from the back of the board and attach the spacer fro
 
 ![Spacer for oled guard plate](img/case-spacer-guard-plate-1.jpg)
 
-Attach the **7mm spacer** to the top plate.
+Attach the **7mm spacer** to the top plate. If your kit comes with washers attached those to the spacers (They will hold the top plate slightly off the PCB)
 
 ![Top plate 7mm spacer](img/case-top-plate-spacer-1.jpg)
+
+![Top plate washer](img/case-top-plate-washer-1.jpg)
+*Spacer washer for acrylic case (not necessary for FR4 plate case).*
 
 ### Prepare the rotary encoder
 
@@ -321,16 +377,17 @@ Each half of the keyboard must be programmed separately using this approach.
 
 If you're using DFU bootloader (in case of the Puchi-C/Elite-C), replace the `avrdude` with `dfu`.
 
-## Default keymap
-
-The [default keymap](https://github.com/qmk/qmk_firmware/blob/master/keyboards/keycapsss/kimiko/keymaps/default/keymap.c) is laid out on the assumption that it will be used in the MacOS/US keyboard environment. Feel free to get creative and experiment with keymaps that match your preferences.
-
-![Kimiko default layout](img/kimiko-keymap-default-1.png)
 
 ### Congratulations 🥳
 
 If everything works: You have built your Kimiko. Have fun!
 [If something doesn't work](#when-in-trouble)
+
+
+## Customize the default keymap
+
+**[Keymap-Guide](Keymap.md)**
+
 
 ## Troubleshooting
 
@@ -357,63 +414,3 @@ Please set OS Keyboard Layout as a US keyboard in the OS keyboard settings.
 
 **If you have any problems, please feel free to send a message on Discord (<https://discord.gg/frjFXZB>) or Twitter: [@keycapsss](https://twitter.com/keycapsss)**
 
-## Customize the default keymap
-
-This self-made keyboard use the QMK firmware, described above. The QMK firmware is highly customizable, and you can unlock a lot functionality simply by editing the keymap.
-
-### Edit keymap.c and customize
-
-When customizing a keymap, start by making a copy of the [`qmk_firmware/keyboards/keycapsss/kimiko/keymaps/default`](https://github.com/qmk/qmk_firmware/blob/master/keyboards/keycapsss/kimiko/keymaps/default/) folder and modifying that directory's internal `keymap.c` file.
-Please refer to the [official QMK documentation](https://docs.qmk.fm/#/keycodes) for the key codes and programming specifics.
-
-After changing the keymap,
-
-```bash
-make keycapsss/kimiko:default:flash
-```
-
-If you get an error, please double-check the board, connection and command.
-
-### Bootloader
-
-**Pro Micro and Puchi-C/Elite-C have different bootloader.** Edit the `rule.mk` file in your keymap folder and add the following line to it.
-
-#### Puchi-C or Elite-C_
-
-```c
-BOOTLOADER = atmel-dfu
-```
-
-#### Pro Micro
-
-```c
-BOOTLOADER = caterina
-```
-
-If you use the command `make keycapsss/...:flash`, it read the bootloader settings from the `rule.mk` and uses the right flashing software.
-If you don't have set the `BOOTLOADER` setting, you can change the command to `make keycapsss/...:caterina` for Pro Micro, or `make keycapsss/...:dfu` for Puchi-C/Elite-C
-
-More information on the [official QMK site](https://beta.docs.qmk.fm/using-qmk/guides/flashing/flashing#atmel-dfu).
-
-### Handedness by EEPROM
-
-You can tell each side of the Keyboard, whether it's left or right, by writing it into it's eeprom.  
-In order to do so, first put `#define EE_HANDS` into your config.h.
-Then flash the keymap with
-
-```bash
-make keycapsss/kimiko:(yourkeymap):avrdude-split-left 
-```
-
-and
-
-```bash
-make keycapsss/kimiko:(yourkeymap):avrdude-split-right
-```
-
-respectively.
-If you're using DFU bootloader (in case of the Puchi-C), replace the `avrdude` with `dfu`
-
-From then on, your keyboard will know, which side they are, no matter which side you plug in. You won't have to use the flags again when flashing an update of your keymap.
-
-If you have any problems that aren't answered here, consider joining our discord server at: (<https://discord.gg/5Vfa9azMUr>)
