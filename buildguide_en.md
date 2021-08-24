@@ -118,7 +118,7 @@ You can use a multimeter in "diode mode", on the front side of the board to ensu
 ## Solder the LEDs for keycap back (optionally)
 
 Solder the SK6812 Mini-E LEDs (with legs), on the **back side** of the board.  
-**Pay attention to orientation of the LEDs.**
+**Pay attention to orientation of the LEDs** (the angled leg of the led should be soldered to the pad of the PCB with the slanted white mark)**.**
 
 We solder LEDs using the same approach as for the diodes.
 Begin by pre-soldering one side of the LED pad.
