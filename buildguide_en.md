@@ -2,26 +2,7 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/firstcontributions/first-contributions)
 [![Discord](https://img.shields.io/discord/548530462419582996?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/frjFXZB "Redirect to Keycapsss Discord")
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/) 
-
-# Table of Contents  
-- [Required tools and parts](#Required-tools)  
-- [Introduction](#Introduction)  
-- [Attach the diodes](#attach-the-diodes) 
-- [Solder the LEDs (optional)](#solder-the-leds-for-keycap-back-optionally) 
-- [Solder the TRRS jack and reset switch](#soldering-the-trrs-jack-and-reset-switch) 
-- [Attach the OLED socket](#attach-the-oled-socket)  
-- [Install Pro Micro/Puchi](#install-pro-micro-with-sockets) 
-- [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
-- [Checkpoint](#you-have-reached-a-checkpoint)
-- [Solder the sockets](#solder-the-sockets)
-- [Case assembly](#case-assembly)
-- [Rotary encoder](#prepare-the-rotary-encoder)
-- [Attach the key switches](#attach-the-key-switch)
-- [Pro Micro protective acrylic installation](#pro-micro-protective-acrylic-installation)
-- [Flash keymap on Pro Micro/Puchi-C](#flash-keymap-on-pro-micropuchi-c)
-- [Customize the default keymap](#customize-the-default-keymap)
-- [Troubleshooting](#troubleshooting)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat-square)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 ## Required tools
 
