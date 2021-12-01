@@ -143,6 +143,7 @@ Attach the connector for the OLED on front side (opposite side of diodes). Be ca
 ## Install Pro Micro (with sockets)
 
 ### Check Pro Micro by flashing
+
 **Before installing the Pro Micro, no matter which (can also happen on the Puchi-C), check whether they are working by plugging them in and [flashing the default keymap](#flash-keymap-on-pro-micropuchi-c).**
 
 Open [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases/latest) and connect your Pro Micro/Puchi-C to the computer.  
@@ -156,13 +157,15 @@ If the message appears, the device should be working correctly.
 ### Install onto PCB
 
 You have 3 options:
-- Use the pin headers enclosed in the bag of Pro Micro
-- Use Mill-Max sockets and Mill-Max headers
-- Use Mill-Max sockets with diode legs
+
+* Use the pin headers enclosed in the bag of Pro Micro
+* Use Mill-Max sockets and Mill-Max headers
+* Use Mill-Max sockets with diode legs
 
 For other ways to mount your Pro Micros, look at [the crkbd build guide.](https://nicedoc.io/foostan/crkbd/blob/master/corne-classic/doc/buildguide_en.md#using-pin-sockets)
 
 ### Using Pin header enclosed
+
 The pin header enclosed in the bag of Pro Micro can be used. But I highly recommend using the Mill-Max socket headers, or Spring-loaded pin headers. With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros- the USB port will break at some point!)
 
 ![Standard header/ Mill-Max socket header](img/mill-max-12-single-row-socket-1.jpg)
@@ -175,7 +178,6 @@ The pin header enclosed in the bag of Pro Micro can be used. But I highly recomm
 4. Solder the Pro-Micro in place
 
 Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
-
 
 ### Use Mill-Max sockets and Mill-Max headers
 
@@ -194,6 +196,7 @@ Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
 Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
 
 ### Use Mill-Max sockets with diode legs
+
 1. Note the **outlined sets of holes in PCB,** and insert the Mill-Max sockets into the outlined holes on the **front side**. Please be careful, as the **connections are different for the right and left boards.**
 ![Pro Micro_PCB](img/pro-micro-solder-location-1.jpg)
 *PCB front side (left half)*
@@ -207,22 +210,18 @@ Go to [Install the OLED on the socket](#install-the-oled-sd1306-on-the-socket)
 5. Place the Pro Micro/Puchi-C **(USB socket facing down)**.
 ![Diode legs 1](img/mill-max-12-single-row-socket-3.jpg)
 *Pro Micro placement with diode legs*
-6. Solder the pins. Shorten the pins with side cutters/flush cutters 
+6. Solder the pins. Shorten the pins with side cutters/flush cutters
 ![Diode legs 2](img/mill-max-12-single-row-socket-4.jpg)
 *Time to snip*
 7. You should be able to slowly wedge off the pro micro from the Max-Mill sockets using tweezers and a bit of levering from the top and bottom of the pro micro. Take off the tape.
 ![Pro Micro Removed](img/pro-micro-wedgin-1.jpg)
 *Pro Micro levered off the pins. Now time to remove tape*
 
-
-
-
 ## Install the OLED (SD1306) on the socket
 
 Remove the black plastic spacer that's part of the header installed in the OLED. Then you'll be able to shorten it's legs with your pliers and put them into the socket, resulting into a way more low profile OLED. You can wiggle it off with pliers carefully.
 
 ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-1.jpg) ![Oled SD1306 shorten pins](img/oled-shorten-pins-sd1306-2.jpg)
-
 
 ## You have reached a checkpoint
 
@@ -358,17 +357,14 @@ Each half of the keyboard must be programmed separately using this approach.
 
 If you're using DFU bootloader (in case of the Puchi-C/Elite-C), replace the `avrdude` with `dfu`.
 
-
 ### Congratulations 🥳
 
 If everything works: You have built your Kimiko. Have fun!
 [If something doesn't work](#when-in-trouble)
 
-
 ## Customize the default keymap
 
 **[Keymap-Guide](Keymap.md)**
-
 
 ## Troubleshooting
 
@@ -394,4 +390,3 @@ Check the [direction of the diode](#attach-the-diodes) in question. If it is wro
 Please set OS Keyboard Layout as a US keyboard in the OS keyboard settings.
 
 **If you have any problems, please feel free to send a message on Discord (<https://discord.gg/frjFXZB>) or Twitter: [@keycapsss](https://twitter.com/keycapsss)**
-

@@ -15,7 +15,7 @@
 
 **Hardware available at [keycapsss.com](https://keycapsss.com)**
 
-![](https://keycapsss.com/media/image/g0/9e/1f/kimiko-split-keyboard-1vUUb4KAeC3ojx_1280x1280.jpg)
+![Kimiko keyboard with RGB LED](https://keycapsss.com/media/image/g0/9e/1f/kimiko-split-keyboard-1vUUb4KAeC3ojx_1280x1280.jpg)
 
 ## Parts
 
