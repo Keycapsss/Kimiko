@@ -360,7 +360,7 @@ If you're using DFU bootloader (in case of the Puchi-C/Elite-C), replace the `av
 ### Congratulations 🥳
 
 If everything works: You have built your Kimiko. Have fun!
-[If something doesn't work](#when-in-trouble)
+[If something doesn't work](#troubleshooting)
 
 ## Customize the default keymap
 
@@ -385,8 +385,20 @@ Re-solder the problem socket, or reflow and add solder if the joint is weak.
 In the case of badly attached diode:
 Check the [direction of the diode](#attach-the-diodes) in question. If it is wrong, remove it and re-solder it. Additionally, if there isn't enough solder, please re-solder.
 
+### Q. Both half‘s are working as single, but if i connect them via TRRS cable one side is not working.
+
+A. Check the TRRS jack solder points for bridges or cold solder points.
+
+The TRRS cable should have 4 poles.
+
+Use a multimeter to check the cable. Each pole should only have connection to the opposite pole.
+
+### Q. One side does not respond.
+
+A. Check if all LED‘s have the correct orientation.
+
 ### Q. A symbol different from the symbol input by "@" or "[" etc. is input (on Windows, etc.)
 
-Please set OS Keyboard Layout as a US keyboard in the OS keyboard settings.
+A. Please set OS Keyboard Layout as a US keyboard in the OS keyboard settings.
 
 **If you have any problems, please feel free to send a message on Discord (<https://discord.gg/frjFXZB>) or Twitter: [@keycapsss](https://twitter.com/keycapsss)**
